@@ -1644,5 +1644,8 @@ TEXT
                 ],
             ]
         );
+
+        // 7. Seed Full Comprehensive Test Library (80+ Tests across TOEIC, Cambridge 10-19, GT, Forecast)
+        $this->call(ComprehensiveTestLibrarySeeder::class);
     }
 }
