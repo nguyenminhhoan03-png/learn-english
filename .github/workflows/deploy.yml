@@ -117,14 +117,25 @@ jobs:
           script: |
             set -e
             echo "🚀 Deploying EduLearn to AWS Server..."
-            cd /opt/edulearn || mkdir -p /opt/edulearn && cd /opt/edulearn
             
-            # Pull latest container
-            docker pull ghcr.io/${{ github.repository }}/app:latest
+            # Navigate to project directory or clone if not exists
+            if [ ! -d "/home/ubuntu/learn-english" ]; then
+              cd /home/ubuntu
+              git clone https://github.com/${{ github.repository }}.git
+            fi
             
-            # Restart services with zero-downtime rolling update
-            docker compose pull app
-            docker compose up -d --no-deps --remove-orphans app
+            cd /home/ubuntu/learn-english
+            
+            # Pull latest commits
+            git pull origin main
+            
+            # Ensure .env exists from docker example
+            if [ ! -f ".env" ]; then
+              cp .env.docker.example .env
+            fi
+            
+            # Build and restart containers seamlessly
+            docker compose up --build -d
             
             # Optimize production Laravel runtime
             docker compose exec -T app php artisan config:cache
