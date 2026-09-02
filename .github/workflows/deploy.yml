@@ -49,7 +49,7 @@ jobs:
           php artisan key:generate
 
       - name: 🧪 Execute PHPUnit Automated Tests
-        run: php artisan test --parallel
+        run: php artisan test
 
   # ==========================================
   # 2. BUILD & PUSH DOCKER IMAGE
