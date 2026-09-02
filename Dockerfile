@@ -31,7 +31,7 @@ RUN composer dump-autoload --optimize --no-dev --classmap-authoritative
 # ==========================================
 # STAGE 3: Final Production Runner Image
 # ==========================================
-FROM php:8.2-fpm-alpine AS runner
+FROM php:8.3-fpm-alpine AS runner
 
 # Install system dependencies & Nginx & Supervisor & PHP Extensions
 RUN apk add --no-cache \
