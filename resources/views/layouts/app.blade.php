@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Primary Meta Tags & SEO Optimization -->
     <title>@yield('title', 'EduLearn - Luyện Thi IELTS & Tự Học Tiếng Anh Chuẩn DOL Linearthinking')</title>
     <meta name="title" content="@yield('title', 'EduLearn - Luyện Thi IELTS & Tự Học Tiếng Anh Chuẩn DOL Linearthinking')">
@@ -805,11 +806,13 @@
                     this.showPopup = true;
 
                     try {
+                        const csrf = document.querySelector('meta[name="csrf-token"]')?.content || '';
                         const res = await fetch('/api/dictionary/lookup', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': csrf
                             },
                             body: JSON.stringify({ word: this.selectedWord })
                         });
@@ -818,6 +821,8 @@
                             this.phonetic = data.phonetic || '';
                             this.definitionVi = data.definition_vi;
                             this.audioUrl = data.audio || '';
+                        } else {
+                            this.definitionVi = data.message || 'Không tìm thấy định nghĩa cho từ này.';
                         }
                     } catch (e) {
                         this.definitionVi = 'Không thể tải nghĩa từ điển.';
@@ -837,11 +842,13 @@
 
                 async saveToNotebook() {
                     try {
+                        const csrf = document.querySelector('meta[name="csrf-token"]')?.content || '';
                         const res = await fetch('/api/dictionary/save-word', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': csrf
                             },
                             body: JSON.stringify({
                                 word: this.selectedWord,
