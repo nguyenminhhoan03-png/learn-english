@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Lộ Trình Tự Học IELTS, TOEIC & Tiếng Anh Toàn Diện - EduLearn')
+@section('title', 'Lộ Trình Tự Học IELTS, TOEIC & Tiếng Anh Toàn Diện - LearnEnglish')
 @section('meta_description', 'Khám phá các lộ trình tự học tiếng Anh bài bản từ mất gốc lên IELTS 7.0+, TOEIC 800+ và Tiếng Anh Giao Tiếp Doanh Nghiệp theo phương pháp tư duy Linearthinking.')
 
 @section('content')

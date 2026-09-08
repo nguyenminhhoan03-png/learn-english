@@ -9,7 +9,7 @@ services:
     ports:
       - "80:80"
     environment:
-      APP_NAME: "EduLearn"
+      APP_NAME: "LearnEnglish"
       APP_ENV: "production"
       APP_KEY: "${APP_KEY:-base64:3tA6jKk8xV6e4YlZ3n1Q5p9R7m2O4s8T1u5W9y2A4d8=}"
       APP_DEBUG: "false"

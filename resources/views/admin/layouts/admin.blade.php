@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin CMS - EduLearn Management Portal')</title>
+    <title>@yield('title', 'Admin CMS - LearnEnglish Management Portal')</title>
     
     <!-- Google Fonts: Be Vietnam Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
                         <i data-lucide="shield-check" class="w-5 h-5"></i>
                     </div>
                     <div x-show="sidebarOpen" class="flex flex-col">
-                        <span class="text-lg font-black font-display tracking-tight text-white leading-none">EduLearn</span>
+                        <span class="text-lg font-black font-display tracking-tight text-white leading-none">LearnEnglish</span>
                         <span class="text-[10px] font-bold text-rose-400 uppercase tracking-wider mt-0.5">Admin CMS</span>
                     </div>
                 </a>
@@ -110,7 +110,7 @@
                 </span>
                 <div class="flex items-center space-x-2">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Admin" class="w-9 h-9 rounded-xl object-cover ring-2 ring-rose-500/30">
-                    <span class="text-xs font-bold text-white hidden sm:block">Admin EduLearn</span>
+                    <span class="text-xs font-bold text-white hidden sm:block">Admin LearnEnglish</span>
                 </div>
             </div>
         </header>

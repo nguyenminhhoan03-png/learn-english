@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Đăng Ký Tài Khoản Mới - EduLearn English')
+@section('title', 'Đăng Ký Tài Khoản Mới - LearnEnglish')
 
 @section('content')
 <div class="min-h-[calc(100vh-14rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
@@ -17,7 +17,7 @@
                         <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
                     </div>
                     <div>
-                        <span class="text-xl font-black font-display tracking-tight text-white block leading-none">EduLearn</span>
+                        <span class="text-xl font-black font-display tracking-tight text-white block leading-none">LearnEnglish</span>
                         <span class="text-[9px] font-bold uppercase tracking-wider text-rose-400">Linearthinking Method</span>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
             </div>
 
             <div class="relative mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-400 text-center">
-                Bằng việc đăng ký, bạn đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của EduLearn.
+                Bằng việc đăng ký, bạn đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của LearnEnglish.
             </div>
         </div>
 

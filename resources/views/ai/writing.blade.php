@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'AI Chấm Bài IELTS Writing 4 Tiêu Chí - EduLearn')
+@section('title', 'AI Chấm Bài IELTS Writing 4 Tiêu Chí - LearnEnglish')
 
 @section('content')
 <div x-data="aiGrader()" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Đăng Nhập Tài Khoản - EduLearn English')
+@section('title', 'Đăng Nhập Tài Khoản - LearnEnglish')
 
 @section('content')
 <div class="min-h-[calc(100vh-14rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
@@ -18,7 +18,7 @@
                         <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
                     </div>
                     <div>
-                        <span class="text-xl font-black font-display tracking-tight text-white block leading-none">EduLearn</span>
+                        <span class="text-xl font-black font-display tracking-tight text-white block leading-none">LearnEnglish</span>
                         <span class="text-[9px] font-bold uppercase tracking-wider text-rose-400">Linearthinking Method</span>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                 <div>
                     <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wide mb-1.5">Địa Chỉ Email:</label>
                     <div class="relative">
-                        <input type="email" name="email" value="{{ old('email', 'admin@edulearn.vn') }}" required placeholder="your-email@example.com" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-rose-500 text-xs font-semibold text-slate-900">
+                        <input type="email" name="email" value="{{ old('email', 'admin@learnenglish.vn') }}" required placeholder="your-email@example.com" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-rose-500 text-xs font-semibold text-slate-900">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                             <i data-lucide="mail" class="w-4 h-4"></i>
                         </div>

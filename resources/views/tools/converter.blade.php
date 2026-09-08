@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Bảng Quy Đổi Điểm IELTS, TOEIC & CEFR Chuẩn Quốc Tế - EduLearn')
+@section('title', 'Bảng Quy Đổi Điểm IELTS, TOEIC & CEFR Chuẩn Quốc Tế - LearnEnglish')
 @section('meta_description', 'Công cụ tính và quy đổi điểm IELTS Band 9.0, TOEIC 990, Khung tham chiếu Châu Âu CEFR (B1, B2, C1, C2) và VSTEP chính xác nhất.')
 
 @section('content')

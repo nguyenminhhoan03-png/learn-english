@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $roadmap->title . ' - EduLearn')
+@section('title', $roadmap->title . ' - LearnEnglish')
 @section('meta_description', $roadmap->description)
 
 @section('content')

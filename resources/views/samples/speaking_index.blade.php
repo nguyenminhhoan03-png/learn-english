@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Thư Viện Bài Mẫu IELTS Speaking Band 8.0+ - EduLearn')
+@section('title', 'Thư Viện Bài Mẫu IELTS Speaking Band 8.0+ - LearnEnglish')
 
 @section('content')
 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">

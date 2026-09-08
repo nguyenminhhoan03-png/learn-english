@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Bảng Phiên Âm Quốc Tế IPA 44 Âm Chuẩn Oxford - EduLearn')
+@section('title', 'Bảng Phiên Âm Quốc Tế IPA 44 Âm Chuẩn Oxford - LearnEnglish')
 @section('meta_description', 'Luyện phát âm chuẩn 44 âm IPA tiếng Anh với âm thanh mẫu, khẩu hình miệng và các từ vựng ví dụ trực quan.')
 
 @section('content')

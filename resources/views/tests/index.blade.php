@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Thư Viện Đề Thi IELTS Academic & General - EduLearn')
+@section('title', 'Thư Viện Đề Thi IELTS Academic & General - LearnEnglish')
 @section('meta_description', 'Luyện thi trọn bộ Cambridge IELTS 10 đến 19 Academic & General Training có giải thích chi tiết phương pháp Linearthinking, bấm giờ thi thử tự động chấm điểm Band 9.0.')
 
 @push('styles')

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Primary Meta Tags & SEO Optimization -->
-    <title>@yield('title', 'EduLearn - Luyện Thi IELTS & Tự Học Tiếng Anh Chuẩn DOL Linearthinking')</title>
-    <meta name="title" content="@yield('title', 'EduLearn - Luyện Thi IELTS & Tự Học Tiếng Anh Chuẩn DOL Linearthinking')">
+    <title>@yield('title', 'LearnEnglish - Luyện Thi IELTS & Tự Học Tiếng Anh Chuẩn DOL Linearthinking')</title>
+    <meta name="title" content="@yield('title', 'LearnEnglish - Luyện Thi IELTS & Tự Học Tiếng Anh Chuẩn DOL Linearthinking')">
     <meta name="description" content="@yield('meta_description', 'Nền tảng tự học tiếng Anh thông minh ứng dụng phương pháp Linearthinking độc quyền DOL English. Luyện thi IELTS Cambridge 10-19, thi thử 4 kỹ năng, AI chấm Writing 4 tiêu chí, Nghe chép chính tả Dictation và Flashcard SM-2.')">
     <meta name="keywords" content="@yield('meta_keywords', 'luyện thi ielts, tự học ielts, dol english, linearthinking, cambridge ielts 19, ielts reading, ielts listening, ielts writing task 2, ai cham bai writing, nghe chep chinh ta, dictation, hoc tu vung flashcard sm-2, hoc tieng anh online')">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="author" content="EduLearn English">
+    <meta name="author" content="LearnEnglish">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Favicon & Brand Icons -->
@@ -21,16 +21,16 @@
     <!-- Open Graph / Facebook / Zalo -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="@yield('title', 'EduLearn - Luyện Thi IELTS Chuẩn DOL Linearthinking')">
+    <meta property="og:title" content="@yield('title', 'LearnEnglish - Luyện Thi IELTS Chuẩn DOL Linearthinking')">
     <meta property="og:description" content="@yield('meta_description', 'Luyện thi IELTS thông minh, tối ưu 50% thời gian làm bài với phương pháp Linearthinking độc quyền.')">
     <meta property="og:image" content="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80">
     <meta property="og:locale" content="vi_VN">
-    <meta property="og:site_name" content="EduLearn English">
+    <meta property="og:site_name" content="LearnEnglish">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="@yield('title', 'EduLearn - Luyện Thi IELTS Chuẩn DOL Linearthinking')">
+    <meta name="twitter:title" content="@yield('title', 'LearnEnglish - Luyện Thi IELTS Chuẩn DOL Linearthinking')">
     <meta name="twitter:description" content="@yield('meta_description', 'Luyện thi IELTS thông minh, tối ưu 50% thời gian làm bài với phương pháp Linearthinking độc quyền.')">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80">
 
@@ -42,7 +42,7 @@
         {
           "@type": "EducationalOrganization",
           "@id": "{{ url('/') }}/#organization",
-          "name": "EduLearn English - Linearthinking Platform",
+          "name": "LearnEnglish - Linearthinking Platform",
           "url": "{{ url('/') }}",
           "logo": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=200&q=80",
           "description": "Nền tảng tự học và luyện thi IELTS trực tuyến ứng dụng công nghệ AI và phương pháp tư duy Linearthinking.",
@@ -55,7 +55,7 @@
           "@type": "WebSite",
           "@id": "{{ url('/') }}/#website",
           "url": "{{ url('/') }}",
-          "name": "EduLearn English",
+          "name": "LearnEnglish",
           "publisher": {
             "@id": "{{ url('/') }}/#organization"
           },
@@ -97,8 +97,8 @@
       x-data="globalApp({
           streak: {{ $currentUser?->streak_count ?? 7 }},
           xp: {{ $currentUser?->xp_points ?? 820 }},
-          name: '{{ $currentUser?->name ?? 'Nguyễn Minh Anh' }}',
-          email: '{{ $currentUser?->email ?? 'student@edulearn.vn' }}',
+          name: '{{ $currentUser?->name ?? "Học Viên" }}',
+          email: '{{ $currentUser?->email ?? "student@learnenglish.vn" }}',
           targetBand: '{{ $currentUser?->target_band ?? '7.5' }}',
           role: '{{ $currentUser?->role ?? 'user' }}'
       })">
@@ -116,7 +116,7 @@
                         </div>
                         <div class="flex flex-col">
                             <div class="flex items-center space-x-1.5">
-                                <span class="text-xl sm:text-[22px] font-black font-display tracking-tight text-slate-900 leading-none">EduLearn</span>
+                                <span class="text-xl sm:text-[22px] font-black font-display tracking-tight text-slate-900 leading-none">LearnEnglish</span>
                                 <span class="px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider bg-rose-50 text-rose-600 border border-rose-200/80 rounded-md">DOL</span>
                             </div>
                             <span class="text-[9.5px] font-bold text-slate-400 tracking-wider uppercase hidden sm:block mt-0.5">Linearthinking Method</span>
@@ -601,7 +601,7 @@
                             <i data-lucide="zap" class="w-5 h-5 fill-current" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <span class="text-xl font-black font-display text-slate-900 tracking-tight block">EduLearn English</span>
+                            <span class="text-xl font-black font-display text-slate-900 tracking-tight block">LearnEnglish</span>
                             <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider block font-mono">DOL Linearthinking Method</span>
                         </div>
                     </div>
@@ -618,18 +618,18 @@
                         </div>
                         <div class="flex items-center space-x-2.5">
                             <i data-lucide="mail" class="w-4 h-4 text-rose-600 flex-shrink-0" aria-hidden="true"></i>
-                            <span>Email hỗ trợ: <a href="mailto:support@edulearn.edu.vn" class="font-bold text-slate-900 hover:text-rose-600 transition">support@edulearn.edu.vn</a></span>
+                            <span>Email hỗ trợ: <a href="mailto:support@learnenglish.edu.vn" class="font-bold text-slate-900 hover:text-rose-600 transition">support@learnenglish.edu.vn</a></span>
                         </div>
                         <div class="flex items-start space-x-2.5">
                             <i data-lucide="map-pin" class="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
-                            <span class="leading-relaxed">Cơ sở học thuật: Tòa nhà EduLearn Innovation, Đống Đa, Hà Nội & Quận 1, TP. Hồ Chí Minh</span>
+                            <span class="leading-relaxed">Cơ sở học thuật: Tòa nhà LearnEnglish Innovation, Đống Đa, Hà Nội & Quận 1, TP. Hồ Chí Minh</span>
                         </div>
                     </div>
 
                     <!-- Social Channels -->
                     <div class="flex items-center space-x-3 pt-2">
                         <span class="text-xs font-bold text-slate-900 mr-1">Kết nối:</span>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Fanpage Facebook EduLearn English" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 flex items-center justify-center transition border border-slate-200 hover:border-rose-300">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Fanpage Facebook LearnEnglish" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 flex items-center justify-center transition border border-slate-200 hover:border-rose-300">
                             <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
                         <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Kênh Youtube Học IELTS DOL" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 flex items-center justify-center transition border border-slate-200 hover:border-rose-300">
@@ -737,10 +737,10 @@
                     </ul>
                 </div>
 
-                <!-- Column 4: Về EduLearn & Cam Kết Chất Lượng (Lg: col-span-2) -->
+                <!-- Column 4: Về LearnEnglish & Cam Kết Chất Lượng (Lg: col-span-2) -->
                 <div class="lg:col-span-2 space-y-4">
                     <p class="text-sm font-black font-display uppercase tracking-wider text-slate-900 border-l-4 border-emerald-600 pl-2.5">
-                        Về EduLearn
+                        Về LearnEnglish
                     </p>
                     <ul class="space-y-2.5 text-xs font-semibold text-slate-600">
                         <li>
@@ -792,7 +792,7 @@
             <!-- Bottom Legal, Copyright & Badges -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-600">
                 <p>
-                    © 2026 <strong class="text-slate-900">EduLearn English</strong>. Hệ thống tự học tiếng Anh trực tuyến ứng dụng phương pháp Linearthinking.
+                    © 2026 <strong class="text-slate-900">LearnEnglish</strong>. Hệ thống tự học tiếng Anh trực tuyến ứng dụng phương pháp Linearthinking.
                 </p>
                 <div class="flex items-center space-x-4 text-slate-600">
                     <a href="{{ route('home') }}" class="hover:text-rose-600 transition">Quy chế hoạt động</a>

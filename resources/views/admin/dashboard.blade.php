@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', 'Bảng Điều Khiển Quản Trị - EduLearn CMS')
+@section('title', 'Bảng Điều Khiển Quản Trị - LearnEnglish CMS')
 
 @section('content')
 <div class="space-y-8">

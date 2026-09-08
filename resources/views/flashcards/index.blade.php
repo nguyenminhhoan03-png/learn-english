@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Sổ Từ Vựng & Flashcard SM-2 - EduLearn')
+@section('title', 'Sổ Từ Vựng & Flashcard SM-2 - LearnEnglish')
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">

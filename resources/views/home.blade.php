@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'EduLearn - Luyện Thi IELTS & Tự Học Tiếng Anh Chuẩn DOL Linearthinking')
+@section('title', 'LearnEnglish - Luyện Thi IELTS & Tự Học Tiếng Anh Chuẩn DOL Linearthinking')
 
 @section('content')
 <div class="space-y-16 sm:space-y-24">
