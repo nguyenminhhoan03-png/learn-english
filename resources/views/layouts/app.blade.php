@@ -106,38 +106,38 @@
     <!-- Modern Multi-Level Sticky Header -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xs" x-data="{ activeDropdown: null }">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-18 sm:h-20">
+            <div class="flex items-center justify-between h-16 sm:h-20">
                 
-                <!-- Left: Brand Logo -->
-                <div class="flex items-center space-x-6 lg:space-x-8 flex-shrink-0">
-                    <a href="{{ route('home') }}" class="flex items-center space-x-2.5 group whitespace-nowrap">
-                        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-rose-600 via-rose-500 to-rose-400 flex items-center justify-center text-white shadow-glow transform group-hover:scale-105 transition duration-200 flex-shrink-0">
+                <!-- Left: Brand Logo & Desktop Nav -->
+                <div class="flex items-center space-x-3 xl:space-x-4 2xl:space-x-8 flex-shrink-0">
+                    <a href="{{ route('home') }}" class="flex items-center space-x-2 sm:space-x-2.5 group whitespace-nowrap flex-shrink-0">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 2xl:w-11 2xl:h-11 rounded-2xl bg-gradient-to-tr from-rose-600 via-rose-500 to-rose-400 flex items-center justify-center text-white shadow-glow transform group-hover:scale-105 transition duration-200 flex-shrink-0">
                             <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
                         </div>
                         <div class="flex flex-col">
                             <div class="flex items-center space-x-1.5">
-                                <span class="text-xl sm:text-[22px] font-black font-display tracking-tight text-slate-900 leading-none">LearnEnglish</span>
+                                <span class="text-lg sm:text-xl 2xl:text-[22px] font-black font-display tracking-tight text-slate-900 leading-none">LearnEnglish</span>
                                 <span class="px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider bg-rose-50 text-rose-600 border border-rose-200/80 rounded-md">DOL</span>
                             </div>
-                            <span class="text-[9.5px] font-bold text-slate-400 tracking-wider uppercase hidden sm:block mt-0.5">Linearthinking Method</span>
+                            <span class="text-[9px] 2xl:text-[9.5px] font-bold text-slate-400 tracking-wider uppercase hidden 2xl:block mt-0.5">Linearthinking Method</span>
                         </div>
                     </a>
 
-                    <!-- Desktop Multi-Level Navigation -->
-                    <nav class="hidden lg:flex items-center space-x-1">
+                    <!-- Desktop Multi-Level Navigation (Shown on >= xl: 1280px+) -->
+                    <nav class="hidden xl:flex items-center space-x-0.5 2xl:space-x-1">
                         
                         <!-- Link 0: Lộ Trình Học -->
-                        <a href="{{ route('roadmaps.index') }}" class="flex items-center space-x-1.5 px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('roadmaps.*') ? 'text-rose-700 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
-                            <i data-lucide="compass" class="w-4 h-4 text-rose-600" aria-hidden="true"></i>
+                        <a href="{{ route('roadmaps.index') }}" class="flex items-center space-x-1 2xl:space-x-1.5 px-2.5 py-2 2xl:px-3.5 2xl:py-2.5 text-xs 2xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('roadmaps.*') ? 'text-rose-700 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                            <i data-lucide="compass" class="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-rose-600" aria-hidden="true"></i>
                             <span>Lộ Trình Học</span>
                         </a>
 
                         <!-- Dropdown 1: Luyện Đề & Thi Thử (IELTS • TOEIC) -->
                         <div class="relative" @mouseenter="activeDropdown = 'ielts'" @mouseleave="activeDropdown = null">
-                            <button class="flex items-center space-x-1.5 px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('ielts.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
-                                <i data-lucide="book-open" class="w-4 h-4 text-rose-500"></i>
-                                <span>Luyện Đề & Thi Thử</span>
-                                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'ielts'}"></i>
+                            <button class="flex items-center space-x-1 2xl:space-x-1.5 px-2.5 py-2 2xl:px-3.5 2xl:py-2.5 text-xs 2xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('ielts.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                                <i data-lucide="book-open" class="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-rose-500"></i>
+                                <span>Luyện Đề</span><span class="hidden 2xl:inline">&nbsp;& Thi Thử</span>
+                                <i data-lucide="chevron-down" class="w-3 h-3 2xl:w-3.5 2xl:h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'ielts'}"></i>
                             </button>
 
                             <!-- Submenu Panel 1 -->
@@ -205,10 +205,10 @@
 
                         <!-- Dropdown 2: Kỹ Năng & Tự Học -->
                         <div class="relative" @mouseenter="activeDropdown = 'skills'" @mouseleave="activeDropdown = null">
-                            <button class="flex items-center space-x-1.5 px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('dictation.*') || request()->routeIs('samples.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-indigo-500"></i>
-                                <span>Kỹ Năng & Tự Học</span>
-                                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'skills'}"></i>
+                            <button class="flex items-center space-x-1 2xl:space-x-1.5 px-2.5 py-2 2xl:px-3.5 2xl:py-2.5 text-xs 2xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('dictation.*') || request()->routeIs('samples.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-indigo-500"></i>
+                                <span>Kỹ Năng</span><span class="hidden 2xl:inline">&nbsp;& Tự Học</span>
+                                <i data-lucide="chevron-down" class="w-3 h-3 2xl:w-3.5 2xl:h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'skills'}"></i>
                             </button>
 
                             <!-- Submenu Panel 2 -->
@@ -256,10 +256,10 @@
 
                         <!-- Dropdown 3: AI & Từ Vựng -->
                         <div class="relative" @mouseenter="activeDropdown = 'ai_tools'" @mouseleave="activeDropdown = null">
-                            <button class="flex items-center space-x-1.5 px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('flashcards.*') || request()->routeIs('ai.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
-                                <i data-lucide="layers" class="w-4 h-4 text-amber-500"></i>
+                            <button class="flex items-center space-x-1 2xl:space-x-1.5 px-2.5 py-2 2xl:px-3.5 2xl:py-2.5 text-xs 2xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('flashcards.*') || request()->routeIs('ai.*') || request()->routeIs('tools.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                                <i data-lucide="layers" class="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-amber-500"></i>
                                 <span>Công Cụ & AI</span>
-                                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'ai_tools'}"></i>
+                                <i data-lucide="chevron-down" class="w-3 h-3 2xl:w-3.5 2xl:h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'ai_tools'}"></i>
                             </button>
 
                             <!-- Submenu Panel 3 -->
@@ -327,28 +327,30 @@
 
                         <!-- Single Link: Dashboard -->
                         <a href="{{ route('dashboard') }}" 
-                           class="px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('dashboard') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
-                            <span>Dashboard & Radar</span>
+                           class="flex items-center space-x-1 2xl:space-x-1.5 px-2.5 py-2 2xl:px-3.5 2xl:py-2.5 text-xs 2xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('dashboard') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                            <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-slate-500 hidden 2xl:inline-block" aria-hidden="true"></i>
+                            <span>Dashboard</span><span class="hidden 2xl:inline">&nbsp;& Radar</span>
                         </a>
                     </nav>
                 </div>
 
                 <!-- Right: Quick Tools, Gamification & Profile (Auth / Guest States) -->
-                <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+                <div class="flex items-center space-x-1.5 sm:space-x-2 2xl:space-x-3 flex-shrink-0">
                     
                     <!-- Quick Dictionary Button -->
                     <button @click="openQuickDictionary()" 
                             aria-label="Tra cứu từ điển nhanh"
-                            class="hidden md:inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition whitespace-nowrap flex-shrink-0">
-                        <i data-lucide="search" class="w-3.5 h-3.5 text-slate-600"></i>
-                        <span>Tra từ</span>
+                            class="inline-flex items-center justify-center p-2 2xl:px-3 2xl:py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition whitespace-nowrap flex-shrink-0 cursor-pointer"
+                            title="Tra cứu từ điển (Ctrl+K)">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-600"></i>
+                        <span class="hidden 2xl:inline ml-1.5">Tra từ</span>
                     </button>
 
                     @auth
                     <!-- Interactive Streak Widget -->
                     <button @click="showStreakModal = true" 
                             aria-label="Xem chi tiết chuỗi ngày học Streak {{ $currentUser->streak_count ?? 7 }} ngày"
-                            class="flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-amber-100 border border-amber-300 text-amber-950 font-extrabold text-xs shadow-2xs hover:bg-amber-200 transition whitespace-nowrap flex-shrink-0 cursor-pointer" 
+                            class="flex items-center space-x-1 px-2.5 py-1.5 2xl:px-3 2xl:py-2 rounded-xl bg-amber-100 border border-amber-300 text-amber-950 font-extrabold text-xs shadow-2xs hover:bg-amber-200 transition whitespace-nowrap flex-shrink-0 cursor-pointer" 
                             title="Nhấp để xem chi tiết chuỗi ngày học">
                         <span class="text-sm animate-pulse leading-none" aria-hidden="true">🔥</span>
                         <span x-text="`${streak}d`">{{ $currentUser->streak_count ?? 7 }}d</span>
@@ -357,7 +359,7 @@
                     <!-- Interactive XP Widget -->
                     <button @click="showXpModal = true"
                             aria-label="Xem cấp bậc và điểm thưởng {{ $currentUser->xp_points ?? 820 }} XP"
-                            class="flex items-center space-x-1 px-3 py-2 rounded-xl bg-indigo-100 border border-indigo-300 text-indigo-950 font-extrabold text-xs shadow-2xs hover:bg-indigo-200 transition whitespace-nowrap flex-shrink-0 cursor-pointer"
+                            class="hidden sm:flex items-center space-x-1 px-2.5 py-1.5 2xl:px-3 2xl:py-2 rounded-xl bg-indigo-100 border border-indigo-300 text-indigo-950 font-extrabold text-xs shadow-2xs hover:bg-indigo-200 transition whitespace-nowrap flex-shrink-0 cursor-pointer"
                             title="Nhấp để xem cấp bậc và điểm thưởng">
                         <i data-lucide="award" class="w-3.5 h-3.5 text-indigo-700" aria-hidden="true"></i>
                         <span x-text="`${xp} XP`">{{ $currentUser->xp_points ?? 820 }} XP</span>
@@ -368,13 +370,13 @@
                         <button @click="openProfile = !openProfile" 
                                 aria-label="Mở menu tài khoản cá nhân"
                                 :aria-expanded="openProfile ? 'true' : 'false'"
-                                class="flex items-center space-x-1.5 p-1 rounded-2xl hover:bg-slate-100 transition focus:outline-none ring-2 ring-transparent focus:ring-rose-500/30">
+                                class="flex items-center space-x-1.5 p-1 rounded-2xl hover:bg-slate-100 transition focus:outline-none ring-2 ring-transparent focus:ring-rose-500/30 cursor-pointer">
                             <div class="relative">
                                 <img src="{{ $currentUser->avatar ?: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80' }}" 
                                      alt="Ảnh đại diện của {{ $currentUser->name }}" 
                                      width="40" 
                                      height="40" 
-                                     class="w-10 h-10 rounded-xl object-cover ring-2 ring-rose-500/20 shadow-2xs">
+                                     class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-cover ring-2 ring-rose-500/20 shadow-2xs">
                                 <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full" aria-hidden="true"></span>
                             </div>
                             <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-600 hidden sm:block transition-transform duration-150" :class="{'rotate-180 text-rose-600': openProfile}" aria-hidden="true"></i>
@@ -395,8 +397,8 @@
                             <div class="px-4 py-3 bg-gradient-to-r from-slate-50 to-rose-50/40 border-b border-slate-100 flex items-center space-x-3">
                                 <img src="{{ $currentUser->avatar ?: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80' }}" 
                                      alt="{{ $currentUser->name }}"
-                                     width="40"
-                                     height="40"
+                                     width="40" 
+                                     height="40" 
                                      class="w-10 h-10 rounded-2xl object-cover ring-2 ring-rose-500/30 flex-shrink-0">
                                 <div class="min-w-0 flex-1">
                                     <div class="flex items-center space-x-1.5">
@@ -450,7 +452,7 @@
                                 <a href="{{ route('login') }}" class="text-slate-600 hover:text-indigo-700 transition">Đổi tài khoản</a>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit" aria-label="Đăng xuất khỏi tài khoản" class="text-rose-700 hover:text-rose-800 flex items-center space-x-1 transition font-bold">
+                                    <button type="submit" aria-label="Đăng xuất khỏi tài khoản" class="text-rose-700 hover:text-rose-800 flex items-center space-x-1 transition font-bold cursor-pointer">
                                         <i data-lucide="log-out" class="w-3.5 h-3.5" aria-hidden="true"></i>
                                         <span>Đăng Xuất</span>
                                     </button>
@@ -459,34 +461,47 @@
                         </div>
                     </div>
                     @else
-                    <!-- Guest Action Buttons (Desktop & Tablet) -->
-                    <div class="hidden sm:flex items-center space-x-2.5">
-                        <a href="{{ route('login') }}" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-800 hover:text-rose-700 hover:bg-slate-100 transition">
+                    <!-- Guest Action Buttons (Adaptive across Desktop & Tablet) -->
+                    <div class="flex items-center space-x-1.5 sm:space-x-2">
+                        <a href="{{ route('login') }}" class="px-2.5 py-1.5 sm:px-3 sm:py-2 2xl:px-4 2xl:py-2.5 rounded-xl text-xs 2xl:text-sm font-bold text-slate-800 hover:text-rose-700 hover:bg-slate-100 transition whitespace-nowrap">
                             Đăng Nhập
                         </a>
-                        <a href="{{ route('register') }}" class="px-4.5 py-2.5 rounded-xl bg-gradient-to-r from-rose-700 to-rose-600 text-white text-xs sm:text-sm font-extrabold shadow-glow hover:opacity-95 transition">
-                            Đăng Ký Miễn Phí
+                        <a href="{{ route('register') }}" class="px-3 py-1.5 sm:px-3.5 sm:py-2 2xl:px-4.5 2xl:py-2.5 rounded-xl bg-gradient-to-r from-rose-700 to-rose-600 text-white text-xs 2xl:text-sm font-extrabold shadow-glow hover:opacity-95 transition whitespace-nowrap flex-shrink-0">
+                            <span>Đăng Ký</span><span class="hidden 2xl:inline">&nbsp;Miễn Phí</span>
                         </a>
                     </div>
-                    <!-- Compact Mobile Login Button -->
-                    <a href="{{ route('login') }}" class="sm:hidden px-3 py-2 rounded-xl text-xs font-bold text-slate-800 hover:bg-slate-100 border border-slate-200">
-                        Đăng Nhập
-                    </a>
                     @endauth
 
-                    <!-- Mobile Hamburger Button -->
+                    <!-- Mobile & Tablet Hamburger Button (Shown on screens < xl) -->
                     <button @click="mobileMenuOpen = !mobileMenuOpen" 
-                            aria-label="Mở hoặc đóng menu điều hướng trên thiết bị di động"
+                            aria-label="Mở hoặc đóng menu điều hướng trên thiết bị di động và tablet"
                             :aria-expanded="mobileMenuOpen ? 'true' : 'false'"
-                            class="lg:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition flex-shrink-0">
-                        <i data-lucide="menu" class="w-6 h-6" x-show="!mobileMenuOpen" aria-hidden="true"></i>
-                        <i data-lucide="x" class="w-6 h-6" x-show="mobileMenuOpen" style="display: none;" aria-hidden="true"></i>
+                            class="xl:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition flex-shrink-0 cursor-pointer">
+                        <span x-show="!mobileMenuOpen" class="flex items-center justify-center">
+                            <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+                        </span>
+                        <span x-show="mobileMenuOpen" x-cloak class="flex items-center justify-center">
+                            <i data-lucide="x" class="w-6 h-6 text-rose-600" aria-hidden="true"></i>
+                        </span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Drawer Multi-Level Accordion Menu -->
+        <!-- Mobile & Tablet Backdrop Overlay -->
+        <div x-show="mobileMenuOpen" 
+             x-cloak 
+             x-transition:enter="transition-opacity ease-linear duration-200"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             x-transition:leave="transition-opacity ease-linear duration-150"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             @click="mobileMenuOpen = false"
+             class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 xl:hidden"
+             aria-hidden="true"></div>
+
+        <!-- Mobile & Tablet Drawer Multi-Level Accordion Menu -->
         <div x-show="mobileMenuOpen" 
              x-cloak 
              x-transition:enter="transition ease-out duration-200"
@@ -495,22 +510,57 @@
              x-transition:leave="transition ease-in duration-150"
              x-transition:leave-start="opacity-100 translate-y-0"
              x-transition:leave-end="opacity-0 -translate-y-2"
-             class="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-xl max-h-[85vh] overflow-y-auto"
+             class="xl:hidden relative z-50 bg-white border-b border-slate-200 px-4 sm:px-6 pt-3 pb-6 space-y-3 shadow-2xl max-h-[85vh] overflow-y-auto"
              x-data="{ openSub: null }">
 
-            @guest
-            <div class="grid grid-cols-2 gap-2 p-2 bg-slate-50 rounded-2xl border border-slate-100">
-                <a href="{{ route('login') }}" class="py-2.5 text-center text-xs font-bold rounded-xl bg-white border border-slate-200 text-slate-800">
+            @auth
+            <!-- Logged-in User Profile Banner in Drawer -->
+            <div class="p-3 bg-gradient-to-r from-slate-50 to-rose-50/50 rounded-2xl border border-slate-200/80 flex items-center justify-between">
+                <div class="flex items-center space-x-3 min-w-0">
+                    <img src="{{ $currentUser->avatar ?: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80' }}" 
+                         alt="{{ $currentUser->name }}"
+                         class="w-10 h-10 rounded-xl object-cover ring-2 ring-rose-500/20 flex-shrink-0">
+                    <div class="min-w-0">
+                        <div class="flex items-center space-x-1.5">
+                            <p class="text-xs font-extrabold text-slate-900 truncate">{{ $currentUser->name }}</p>
+                            @if($currentUser->isAdmin())
+                            <span class="px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-800 text-[9px] font-black uppercase flex-shrink-0">👑 Admin</span>
+                            @endif
+                        </div>
+                        <p class="text-[11px] text-slate-500 truncate">{{ $currentUser->email }}</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-1 flex-shrink-0">
+                    <span class="px-2 py-1 rounded-lg bg-amber-100 text-amber-900 text-[11px] font-black">🔥 {{ $currentUser->streak_count }}d</span>
+                    <span class="px-2 py-1 rounded-lg bg-indigo-100 text-indigo-900 text-[11px] font-black">⚡ {{ $currentUser->xp_points }}</span>
+                </div>
+            </div>
+            @else
+            <!-- Guest Action Buttons in Drawer -->
+            <div class="grid grid-cols-2 gap-2 p-1.5 bg-slate-50 rounded-2xl border border-slate-100">
+                <a href="{{ route('login') }}" @click="mobileMenuOpen = false" class="py-2.5 text-center text-xs font-bold rounded-xl bg-white border border-slate-200 text-slate-800 hover:text-rose-600 transition">
                     Đăng Nhập
                 </a>
-                <a href="{{ route('register') }}" class="py-2.5 text-center text-xs font-bold rounded-xl bg-rose-600 text-white shadow-glow">
-                    Đăng Ký
+                <a href="{{ route('register') }}" @click="mobileMenuOpen = false" class="py-2.5 text-center text-xs font-bold rounded-xl bg-gradient-to-r from-rose-700 to-rose-600 text-white shadow-glow hover:opacity-95 transition">
+                    Đăng Ký Miễn Phí
                 </a>
             </div>
-            @endguest
+            @endauth
             
+            <!-- Quick Dictionary Search Bar inside Drawer -->
+            <div>
+                <button @click="openQuickDictionary(); mobileMenuOpen = false;" class="w-full py-2.5 px-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl flex items-center justify-between transition cursor-pointer">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-500"></i>
+                        <span>Tra cứu từ điển 1-chạm (IPA, nghĩa, audio)...</span>
+                    </div>
+                    <kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-white rounded border border-slate-200 text-slate-400">Ctrl+K</kbd>
+                </button>
+            </div>
+
+            <!-- Mobile Links & Accordions -->
             <div class="border-b border-slate-100 pb-2">
-                <a href="{{ route('roadmaps.index') }}" class="w-full flex items-center space-x-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-rose-600">
+                <a href="{{ route('roadmaps.index') }}" @click="mobileMenuOpen = false" class="w-full flex items-center space-x-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-rose-600">
                     <i data-lucide="compass" class="w-4 h-4 text-rose-600"></i>
                     <span>Lộ Trình Học Cá Nhân Hóa</span>
                 </a>
@@ -518,68 +568,81 @@
 
             <div class="border-b border-slate-100 pb-2">
                 <button @click="openSub = (openSub === 'ielts' ? null : 'ielts')" 
-                        class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50">
+                        class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50 cursor-pointer">
                     <div class="flex items-center space-x-2.5">
                         <i data-lucide="book-open" class="w-4 h-4 text-rose-600"></i>
                         <span>Luyện Đề & Thi Thử</span>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition transform" :class="{'rotate-180 text-rose-600': openSub === 'ielts'}"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition transform duration-150" :class="{'rotate-180 text-rose-600': openSub === 'ielts'}"></i>
                 </button>
                 <div x-show="openSub === 'ielts'" x-cloak class="pl-7 pr-2 py-1 space-y-1 text-xs font-semibold">
-                    <a href="{{ route('ielts.index', ['category' => 'ielts-academic']) }}" class="block py-2 text-slate-600 hover:text-rose-600">IELTS Academic (Cam 10 - 19)</a>
-                    <a href="{{ route('ielts.index', ['category' => 'toeic-reading-listening']) }}" class="block py-2 text-slate-600 hover:text-rose-600">TOEIC ETS 2024 (Reading & Listening)</a>
-                    <a href="{{ route('ielts.index', ['category' => 'ielts-general-training']) }}" class="block py-2 text-slate-600 hover:text-rose-600">IELTS General Training (Định Cư)</a>
-                    <a href="{{ route('ielts.index', ['category' => 'ielts-recent-actual-tests']) }}" class="block py-2 text-slate-600 hover:text-rose-600">IELTS Forecast Actual Tests 2025</a>
-                    <a href="{{ route('ielts.take', ['slug' => 'cambridge-19-test-1-reading', 'mode' => 'full_test']) }}" class="block py-2 text-rose-600 font-bold">Vào Phòng Thi Thử Full Test 60p →</a>
+                    <a href="{{ route('ielts.index', ['category' => 'ielts-academic']) }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">IELTS Academic (Cam 10 - 19)</a>
+                    <a href="{{ route('ielts.index', ['category' => 'toeic-reading-listening']) }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">TOEIC ETS 2024 (Reading & Listening)</a>
+                    <a href="{{ route('ielts.index', ['category' => 'ielts-general-training']) }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">IELTS General Training (Định Cư)</a>
+                    <a href="{{ route('ielts.index', ['category' => 'ielts-recent-actual-tests']) }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">IELTS Forecast Actual Tests 2025</a>
+                    <a href="{{ route('ielts.take', ['slug' => 'cambridge-19-test-1-reading', 'mode' => 'full_test']) }}" @click="mobileMenuOpen = false" class="block py-2 text-rose-600 font-bold">Vào Phòng Thi Thử Full Test 60p →</a>
                 </div>
             </div>
 
             <div class="border-b border-slate-100 pb-2">
                 <button @click="openSub = (openSub === 'skills' ? null : 'skills')" 
-                        class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50">
+                        class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50 cursor-pointer">
                     <div class="flex items-center space-x-2.5">
                         <i data-lucide="sparkles" class="w-4 h-4 text-indigo-600"></i>
                         <span>Kỹ Năng & Tự Học</span>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition transform" :class="{'rotate-180 text-rose-600': openSub === 'skills'}"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition transform duration-150" :class="{'rotate-180 text-rose-600': openSub === 'skills'}"></i>
                 </button>
                 <div x-show="openSub === 'skills'" x-cloak class="pl-7 pr-2 py-1 space-y-1 text-xs font-semibold">
-                    <a href="{{ route('dictation.index') }}" class="block py-2 text-slate-600 hover:text-rose-600">Nghe Chép Chính Tả (Dictation)</a>
-                    <a href="{{ route('samples.writing.index') }}" class="block py-2 text-slate-600 hover:text-rose-600">Kho Bài Mẫu Writing Band 8.0+</a>
-                    <a href="{{ route('samples.speaking.index') }}" class="block py-2 text-slate-600 hover:text-rose-600">Kho Bài Mẫu Speaking Part 1-2-3</a>
+                    <a href="{{ route('dictation.index') }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">Nghe Chép Chính Tả (Dictation)</a>
+                    <a href="{{ route('samples.writing.index') }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">Kho Bài Mẫu Writing Band 8.0+</a>
+                    <a href="{{ route('samples.speaking.index') }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">Kho Bài Mẫu Speaking Part 1-2-3</a>
                 </div>
             </div>
 
             <div class="border-b border-slate-100 pb-2">
                 <button @click="openSub = (openSub === 'tools' ? null : 'tools')" 
-                        class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50">
+                        class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50 cursor-pointer">
                     <div class="flex items-center space-x-2.5">
                         <i data-lucide="layers" class="w-4 h-4 text-amber-600"></i>
                         <span>Công Cụ & AI</span>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition transform" :class="{'rotate-180 text-rose-600': openSub === 'tools'}"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 transition transform duration-150" :class="{'rotate-180 text-rose-600': openSub === 'tools'}"></i>
                 </button>
                 <div x-show="openSub === 'tools'" x-cloak class="pl-7 pr-2 py-1 space-y-1 text-xs font-semibold">
-                    <a href="{{ route('tools.converter') }}" class="block py-2 text-slate-600 hover:text-rose-600">Bảng Quy Đổi Điểm IELTS / TOEIC</a>
-                    <a href="{{ route('tools.ipa') }}" class="block py-2 text-slate-600 hover:text-rose-600">Bảng 44 Âm IPA Tương Tác</a>
-                    <a href="{{ route('ai.writing.index') }}" class="block py-2 text-slate-600 hover:text-rose-600">AI Chấm Bài Writing 4 Tiêu Chí</a>
-                    <a href="{{ route('flashcards.index') }}" class="block py-2 text-slate-600 hover:text-rose-600">Sổ Từ Vựng Flashcard SM-2</a>
+                    <a href="{{ route('ai.writing.index') }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">AI Chấm Bài Writing 4 Tiêu Chí</a>
+                    <a href="{{ route('flashcards.index') }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">Sổ Từ Vựng Flashcard SM-2</a>
+                    <a href="{{ route('tools.converter') }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">Bảng Quy Đổi Điểm IELTS / TOEIC</a>
+                    <a href="{{ route('tools.ipa') }}" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-rose-600">Bảng 44 Âm IPA Tương Tác</a>
                 </div>
             </div>
 
-            <div>
-                <a href="{{ route('dashboard') }}" class="flex items-center space-x-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50">
+            <div class="border-b border-slate-100 pb-2">
+                <a href="{{ route('dashboard') }}" @click="mobileMenuOpen = false" class="flex items-center space-x-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50 hover:text-rose-600">
                     <i data-lucide="layout-dashboard" class="w-4 h-4 text-slate-500"></i>
                     <span>Dashboard & Radar Điểm Yếu</span>
                 </a>
             </div>
 
-            <div class="pt-3">
-                <button @click="openQuickDictionary(); mobileMenuOpen = false;" class="w-full py-2.5 bg-slate-100 text-slate-800 font-bold text-xs rounded-xl flex items-center justify-center space-x-2">
-                    <i data-lucide="search" class="w-4 h-4 text-slate-500"></i>
-                    <span>Tra Cứu Từ Điển Nhanh</span>
-                </button>
+            @auth
+            <div class="pt-2 flex items-center justify-between text-xs font-bold">
+                @if($currentUser->isAdmin())
+                <a href="{{ route('admin.dashboard') }}" @click="mobileMenuOpen = false" class="text-rose-700 hover:text-rose-800 flex items-center space-x-1.5">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-rose-600"></i>
+                    <span>Quản Trị Admin CMS →</span>
+                </a>
+                @else
+                <span class="text-slate-400">Target: Band {{ $currentUser->target_band ?? '7.5' }}</span>
+                @endif
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="text-rose-600 hover:text-rose-700 flex items-center space-x-1 font-bold cursor-pointer">
+                        <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+                        <span>Đăng Xuất</span>
+                    </button>
+                </form>
             </div>
+            @endauth
         </div>
     </header>
 
@@ -1147,6 +1210,15 @@
                     // Listen to global open-quick-dict event
                     window.addEventListener('open-quick-dict', (e) => {
                         this.openQuickDictionary(e.detail?.word || '');
+                    });
+
+                    // Refresh Lucide icons when mobile menu opens
+                    this.$watch('mobileMenuOpen', (val) => {
+                        if (val) {
+                            this.$nextTick(() => {
+                                if (window.lucide) window.lucide.createIcons();
+                            });
+                        }
                     });
                 },
 
