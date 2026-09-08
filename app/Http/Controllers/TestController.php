@@ -49,7 +49,7 @@ class TestController extends Controller
 
     public function show(string $slug): View
     {
-        $testSet = TestSet::with(['category', 'tests.sections'])->where('slug', $slug)->firstOrFail();
+        $testSet = TestSet::with(['category', 'tests.sections.questionGroups.questions'])->where('slug', $slug)->firstOrFail();
         return view('tests.show_set', compact('testSet'));
     }
 
@@ -58,8 +58,9 @@ class TestController extends Controller
         /** @var Test $test */
         $test = $this->queryBus->ask(new GetTestDetailQuery($slug));
         $mode = $request->query('mode', 'full_test');
+        $parts = $request->query('parts');
 
-        return view('tests.take', compact('test', 'mode'));
+        return view('tests.take', compact('test', 'mode', 'parts'));
     }
 
     public function submit(int $id, Request $request): JsonResponse|RedirectResponse
@@ -97,7 +98,8 @@ class TestController extends Controller
 
     public function result(int $submission_id): View
     {
-        $result = $this->queryBus->ask(new GetSubmissionResultQuery($submission_id));
-        return view('tests.result', compact('result'));
+        $submission = $this->queryBus->ask(new GetSubmissionResultQuery($submission_id));
+        $result = $submission;
+        return view('tests.result', compact('result', 'submission'));
     }
 }

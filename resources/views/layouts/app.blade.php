@@ -106,20 +106,20 @@
     <!-- Modern Multi-Level Sticky Header -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xs" x-data="{ activeDropdown: null }">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-18">
+            <div class="flex items-center justify-between h-18 sm:h-20">
                 
                 <!-- Left: Brand Logo -->
                 <div class="flex items-center space-x-6 lg:space-x-8 flex-shrink-0">
                     <a href="{{ route('home') }}" class="flex items-center space-x-2.5 group whitespace-nowrap">
-                        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-600 via-rose-500 to-rose-400 flex items-center justify-center text-white shadow-glow transform group-hover:scale-105 transition duration-200 flex-shrink-0">
+                        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-rose-600 via-rose-500 to-rose-400 flex items-center justify-center text-white shadow-glow transform group-hover:scale-105 transition duration-200 flex-shrink-0">
                             <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
                         </div>
                         <div class="flex flex-col">
                             <div class="flex items-center space-x-1.5">
-                                <span class="text-xl font-black font-display tracking-tight text-slate-900 leading-none">EduLearn</span>
+                                <span class="text-xl sm:text-[22px] font-black font-display tracking-tight text-slate-900 leading-none">EduLearn</span>
                                 <span class="px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider bg-rose-50 text-rose-600 border border-rose-200/80 rounded-md">DOL</span>
                             </div>
-                            <span class="text-[9px] font-bold text-slate-400 tracking-wider uppercase hidden sm:block mt-0.5">Linearthinking Method</span>
+                            <span class="text-[9.5px] font-bold text-slate-400 tracking-wider uppercase hidden sm:block mt-0.5">Linearthinking Method</span>
                         </div>
                     </a>
 
@@ -127,14 +127,14 @@
                     <nav class="hidden lg:flex items-center space-x-1">
                         
                         <!-- Link 0: Lộ Trình Học -->
-                        <a href="{{ route('roadmaps.index') }}" class="flex items-center space-x-1 px-3 py-2 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('roadmaps.*') ? 'text-rose-700 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                        <a href="{{ route('roadmaps.index') }}" class="flex items-center space-x-1.5 px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('roadmaps.*') ? 'text-rose-700 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
                             <i data-lucide="compass" class="w-4 h-4 text-rose-600" aria-hidden="true"></i>
                             <span>Lộ Trình Học</span>
                         </a>
 
                         <!-- Dropdown 1: Luyện Đề & Thi Thử (IELTS • TOEIC) -->
                         <div class="relative" @mouseenter="activeDropdown = 'ielts'" @mouseleave="activeDropdown = null">
-                            <button class="flex items-center space-x-1 px-3 py-2 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('ielts.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                            <button class="flex items-center space-x-1.5 px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('ielts.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
                                 <i data-lucide="book-open" class="w-4 h-4 text-rose-500"></i>
                                 <span>Luyện Đề & Thi Thử</span>
                                 <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'ielts'}"></i>
@@ -205,7 +205,7 @@
 
                         <!-- Dropdown 2: Kỹ Năng & Tự Học -->
                         <div class="relative" @mouseenter="activeDropdown = 'skills'" @mouseleave="activeDropdown = null">
-                            <button class="flex items-center space-x-1 px-3 py-2 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('dictation.*') || request()->routeIs('samples.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                            <button class="flex items-center space-x-1.5 px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('dictation.*') || request()->routeIs('samples.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
                                 <i data-lucide="sparkles" class="w-4 h-4 text-indigo-500"></i>
                                 <span>Kỹ Năng & Tự Học</span>
                                 <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'skills'}"></i>
@@ -256,7 +256,7 @@
 
                         <!-- Dropdown 3: AI & Từ Vựng -->
                         <div class="relative" @mouseenter="activeDropdown = 'ai_tools'" @mouseleave="activeDropdown = null">
-                            <button class="flex items-center space-x-1 px-3 py-2 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('flashcards.*') || request()->routeIs('ai.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                            <button class="flex items-center space-x-1.5 px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('flashcards.*') || request()->routeIs('ai.*') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
                                 <i data-lucide="layers" class="w-4 h-4 text-amber-500"></i>
                                 <span>Công Cụ & AI</span>
                                 <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-150" :class="{'rotate-180 text-rose-600': activeDropdown === 'ai_tools'}"></i>
@@ -327,7 +327,7 @@
 
                         <!-- Single Link: Dashboard -->
                         <a href="{{ route('dashboard') }}" 
-                           class="px-3 py-2 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('dashboard') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
+                           class="px-3.5 py-2.5 text-xs xl:text-sm font-bold rounded-xl transition whitespace-nowrap {{ request()->routeIs('dashboard') ? 'text-rose-600 bg-rose-50' : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/80' }}">
                             <span>Dashboard & Radar</span>
                         </a>
                     </nav>
@@ -339,7 +339,7 @@
                     <!-- Quick Dictionary Button -->
                     <button @click="openQuickDictionary()" 
                             aria-label="Tra cứu từ điển nhanh"
-                            class="hidden md:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition whitespace-nowrap flex-shrink-0">
+                            class="hidden md:inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition whitespace-nowrap flex-shrink-0">
                         <i data-lucide="search" class="w-3.5 h-3.5 text-slate-600"></i>
                         <span>Tra từ</span>
                     </button>
@@ -348,7 +348,7 @@
                     <!-- Interactive Streak Widget -->
                     <button @click="showStreakModal = true" 
                             aria-label="Xem chi tiết chuỗi ngày học Streak {{ $currentUser->streak_count ?? 7 }} ngày"
-                            class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-100 border border-amber-300 text-amber-950 font-extrabold text-xs shadow-2xs hover:bg-amber-200 transition whitespace-nowrap flex-shrink-0 cursor-pointer" 
+                            class="flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-amber-100 border border-amber-300 text-amber-950 font-extrabold text-xs shadow-2xs hover:bg-amber-200 transition whitespace-nowrap flex-shrink-0 cursor-pointer" 
                             title="Nhấp để xem chi tiết chuỗi ngày học">
                         <span class="text-sm animate-pulse leading-none" aria-hidden="true">🔥</span>
                         <span x-text="`${streak}d`">{{ $currentUser->streak_count ?? 7 }}d</span>
@@ -357,7 +357,7 @@
                     <!-- Interactive XP Widget -->
                     <button @click="showXpModal = true"
                             aria-label="Xem cấp bậc và điểm thưởng {{ $currentUser->xp_points ?? 820 }} XP"
-                            class="flex items-center space-x-1 px-2.5 sm:px-3 py-1.5 rounded-xl bg-indigo-100 border border-indigo-300 text-indigo-950 font-extrabold text-xs shadow-2xs hover:bg-indigo-200 transition whitespace-nowrap flex-shrink-0 cursor-pointer"
+                            class="flex items-center space-x-1 px-3 py-2 rounded-xl bg-indigo-100 border border-indigo-300 text-indigo-950 font-extrabold text-xs shadow-2xs hover:bg-indigo-200 transition whitespace-nowrap flex-shrink-0 cursor-pointer"
                             title="Nhấp để xem cấp bậc và điểm thưởng">
                         <i data-lucide="award" class="w-3.5 h-3.5 text-indigo-700" aria-hidden="true"></i>
                         <span x-text="`${xp} XP`">{{ $currentUser->xp_points ?? 820 }} XP</span>
@@ -372,9 +372,9 @@
                             <div class="relative">
                                 <img src="{{ $currentUser->avatar ?: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80' }}" 
                                      alt="Ảnh đại diện của {{ $currentUser->name }}" 
-                                     width="36" 
-                                     height="36" 
-                                     class="w-9 h-9 rounded-xl object-cover ring-2 ring-rose-500/20 shadow-2xs">
+                                     width="40" 
+                                     height="40" 
+                                     class="w-10 h-10 rounded-xl object-cover ring-2 ring-rose-500/20 shadow-2xs">
                                 <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full" aria-hidden="true"></span>
                             </div>
                             <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-600 hidden sm:block transition-transform duration-150" :class="{'rotate-180 text-rose-600': openProfile}" aria-hidden="true"></i>
@@ -460,16 +460,16 @@
                     </div>
                     @else
                     <!-- Guest Action Buttons (Desktop & Tablet) -->
-                    <div class="hidden sm:flex items-center space-x-2">
-                        <a href="{{ route('login') }}" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 hover:text-rose-700 hover:bg-slate-100 transition">
+                    <div class="hidden sm:flex items-center space-x-2.5">
+                        <a href="{{ route('login') }}" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-800 hover:text-rose-700 hover:bg-slate-100 transition">
                             Đăng Nhập
                         </a>
-                        <a href="{{ route('register') }}" class="px-4 py-2 rounded-xl bg-gradient-to-r from-rose-700 to-rose-600 text-white text-xs font-extrabold shadow-glow hover:opacity-95 transition">
+                        <a href="{{ route('register') }}" class="px-4.5 py-2.5 rounded-xl bg-gradient-to-r from-rose-700 to-rose-600 text-white text-xs sm:text-sm font-extrabold shadow-glow hover:opacity-95 transition">
                             Đăng Ký Miễn Phí
                         </a>
                     </div>
                     <!-- Compact Mobile Login Button -->
-                    <a href="{{ route('login') }}" class="sm:hidden px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-800 hover:bg-slate-100 border border-slate-200">
+                    <a href="{{ route('login') }}" class="sm:hidden px-3 py-2 rounded-xl text-xs font-bold text-slate-800 hover:bg-slate-100 border border-slate-200">
                         Đăng Nhập
                     </a>
                     @endauth
@@ -701,56 +701,193 @@
         </div>
     </div>
 
-    <!-- Global 1-Click In-Text Dictionary Popup -->
+    <!-- Global 1-Click In-Text Dictionary Popover -->
     <div x-show="showPopup" 
          x-cloak 
          @click.away="showPopup = false"
          :style="`top: ${popupTop}px; left: ${popupLeft}px;`"
-         class="fixed z-50 w-80 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-200/90 p-4 transition-all duration-200 animate-pop">
+         class="fixed z-50 w-84 bg-white/95 backdrop-blur-xl rounded-2xl shadow-dropdown border border-slate-200/90 p-4 transition-all duration-200 animate-pop">
         <div class="flex items-start justify-between">
             <div>
-                <h4 class="text-lg font-black font-display text-slate-900" x-text="selectedWord"></h4>
-                <p class="text-xs text-rose-600 font-mono" x-text="phonetic"></p>
+                <div class="flex items-center space-x-2">
+                    <h4 class="text-base font-black font-display text-slate-900" x-text="selectedWord"></h4>
+                    <span x-show="selectedPos" class="px-1.5 py-0.2 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded text-[9px] font-black uppercase" x-text="selectedPos"></span>
+                </div>
+                <p class="text-xs text-rose-600 font-mono font-bold mt-0.5" x-text="phonetic"></p>
             </div>
-            <button @click="showPopup = false" aria-label="Đóng bảng tra từ vựng" class="text-slate-500 hover:text-slate-800">
+            <button @click="showPopup = false" aria-label="Đóng bảng tra từ vựng" class="text-slate-400 hover:text-slate-700 p-0.5">
                 <i data-lucide="x" class="w-4 h-4" aria-hidden="true"></i>
             </button>
         </div>
         
-        <div class="mt-2.5 text-xs text-slate-800 bg-slate-100 rounded-xl p-2.5 border border-slate-200 font-medium" x-text="definitionVi"></div>
+        <div class="mt-2.5 text-xs text-slate-800 bg-rose-50/80 rounded-xl p-3 border border-rose-200/70 font-semibold leading-relaxed" x-text="definitionVi"></div>
         
-        <div class="mt-3 flex items-center justify-between">
-            <button @click="playAudio()" x-show="selectedWord" aria-label="Phát âm từ vựng" class="inline-flex items-center space-x-1 text-xs font-bold text-indigo-700 hover:text-indigo-900 cursor-pointer">
+        <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
+            <button @click="playAudio('us')" x-show="selectedWord" aria-label="Phát âm từ vựng" class="inline-flex items-center space-x-1 text-xs font-extrabold text-indigo-600 hover:text-indigo-800 cursor-pointer">
                 <i data-lucide="volume-2" class="w-3.5 h-3.5" aria-hidden="true"></i>
                 <span>Phát âm</span>
             </button>
-            <button @click="saveToNotebook()" aria-label="Lưu từ vào sổ từ vựng cá nhân" class="ml-auto inline-flex items-center space-x-1.5 px-3 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-lg font-bold text-xs transition shadow-sm cursor-pointer">
-                <i data-lucide="bookmark-plus" class="w-3.5 h-3.5" aria-hidden="true"></i>
-                <span x-text="isSaved ? '✓ Đã Lưu' : '+ Lưu vào sổ'"></span>
-            </button>
+            <div class="flex items-center space-x-1.5 ml-auto">
+                <button @click="openQuickDictionary(selectedWord)" class="text-[11px] font-bold text-slate-500 hover:text-slate-900 px-2 py-1 rounded-lg hover:bg-slate-100 transition">
+                    Chi tiết →
+                </button>
+                <button @click="saveToNotebook()" aria-label="Lưu từ vào sổ từ vựng" class="inline-flex items-center space-x-1 px-2.5 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-lg font-bold text-xs transition shadow-2xs cursor-pointer">
+                    <i data-lucide="bookmark-plus" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                    <span x-text="isSaved ? '✓ Đã Lưu' : '+ Lưu'"></span>
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Quick Search Dictionary Modal -->
-    <div x-show="showSearchModal" x-cloak class="fixed inset-0 z-50 overflow-y-auto bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl border border-slate-200 space-y-4 animate-pop" @click.outside="showSearchModal = false">
-            <div class="flex items-center justify-between">
-                <h3 class="text-base font-black font-display text-slate-900">Tra Cứu Từ Điển Nhanh</h3>
-                <button @click="showSearchModal = false" aria-label="Đóng hộp thoại tra cứu từ điển" class="text-slate-500 hover:text-slate-800 cursor-pointer">
-                    <i data-lucide="x" class="w-5 h-5" aria-hidden="true"></i>
+    <!-- Quick Search Dictionary Slide-over Drawer -->
+    <div x-show="showSearchModal" x-cloak class="fixed inset-0 z-50 overflow-hidden bg-slate-950/60 backdrop-blur-xs flex justify-end transition-opacity duration-200">
+        <div class="bg-white w-full max-w-lg h-full shadow-2xl flex flex-col transform transition-transform duration-300 overflow-hidden" 
+             @click.outside="showSearchModal = false">
+             
+            <!-- Drawer Header -->
+            <div class="px-6 py-4.5 border-b border-slate-200 flex items-center justify-between bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white flex-shrink-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-2xl bg-rose-600 flex items-center justify-center text-white shadow-glow">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-black font-display tracking-tight text-white leading-tight">Từ Điển Tra Cứu Thông Minh</h3>
+                        <p class="text-[11px] text-slate-300 font-medium mt-0.5">Phiên âm IPA • Audio US/UK • Nghĩa Linearthinking</p>
+                    </div>
+                </div>
+                <button @click="showSearchModal = false" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition cursor-pointer">
+                    <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
-            <div class="relative">
-                <input type="text" 
-                       x-model="searchQuery" 
-                       aria-label="Nhập từ vựng tiếng Anh để tra cứu"
-                       @keydown.enter.prevent="lookupWord(searchQuery); showSearchModal = false;"
-                       placeholder="Nhập từ vựng tiếng Anh (VD: compelling, crucial)..." 
-                       class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-rose-500 text-sm font-medium">
+
+            <!-- Search Input & Suggested Keywords -->
+            <div class="p-5 border-b border-slate-100 bg-slate-50/70 space-y-3 flex-shrink-0">
+                <div class="relative flex items-center">
+                    <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none"></i>
+                    <input type="text" 
+                           x-model="searchQuery" 
+                           x-ref="dictInput"
+                           @keydown.enter.prevent="searchDictionary(searchQuery)"
+                           placeholder="Nhập từ vựng tiếng Anh (crucial, compelling, reimburse...)" 
+                           class="w-full pl-12 pr-10 py-3 rounded-2xl bg-white border border-slate-300 focus:border-rose-500 focus:ring-3 focus:ring-rose-500/15 text-sm font-semibold text-slate-900 shadow-2xs transition">
+                    <button x-show="searchQuery" @click="searchQuery = ''; $refs.dictInput.focus()" class="absolute right-3.5 text-slate-400 hover:text-slate-600 p-1">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- High-Frequency Academic Suggestion Tags -->
+                <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 text-xs">
+                    <span class="text-[11px] font-bold text-slate-400 flex-shrink-0">Gợi ý:</span>
+                    <template x-for="tag in ['crucial', 'compelling', 'autonomous', 'feasible', 'mitigate', 'reimburse', 'warranty']" :key="tag">
+                        <button @click="searchQuery = tag; searchDictionary(tag)" 
+                                class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 hover:border-rose-300 hover:bg-rose-50 text-slate-700 hover:text-rose-700 text-[11px] font-bold transition flex-shrink-0">
+                            <span x-text="tag"></span>
+                        </button>
+                    </template>
+                </div>
             </div>
-            <button @click="lookupWord(searchQuery); showSearchModal = false;" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm rounded-xl transition cursor-pointer">
-                Tra Cứu & Lưu Từ
-            </button>
+
+            <!-- Drawer Results Area -->
+            <div class="flex-1 overflow-y-auto p-6 space-y-5">
+                <!-- Loading State -->
+                <div x-show="dictLoading" class="py-16 text-center space-y-3">
+                    <div class="w-10 h-10 border-3 border-rose-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                    <p class="text-xs font-bold text-slate-500">Đang tra cứu cơ sở dữ liệu từ điển...</p>
+                </div>
+
+                <!-- Initial Empty State -->
+                <div x-show="!dictLoading && !dictResult" class="py-16 text-center space-y-3">
+                    <div class="w-14 h-14 rounded-3xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto shadow-2xs">
+                        <i data-lucide="sparkles" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-sm font-black text-slate-800">Tra cứu nhanh từ vựng bất kỳ</h4>
+                    <p class="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
+                        Gõ từ vựng tiếng Anh vào ô tìm kiếm hoặc bôi đen trực tiếp từ vựng trong bài đọc thi IELTS / TOEIC để tra nghĩa tức thì.
+                    </p>
+                </div>
+
+                <!-- Active Result Display Card -->
+                <div x-show="!dictLoading && dictResult" class="space-y-5 animate-pop">
+                    <!-- Word & Pronunciation Card -->
+                    <div class="bg-gradient-to-br from-slate-50 via-white to-rose-50/40 rounded-3xl p-6 border border-slate-200/90 shadow-2xs space-y-4">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <h2 class="text-2xl font-black font-display text-slate-900 tracking-tight" x-text="dictResult?.word"></h2>
+                                    <span x-show="dictResult?.part_of_speech" 
+                                          class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-200/80" 
+                                          x-text="dictResult?.part_of_speech"></span>
+                                </div>
+                                <p class="text-sm text-rose-600 font-mono font-bold mt-1" x-text="dictResult?.phonetic || '/.../'"></p>
+                            </div>
+
+                            <!-- Save to Flashcard Button -->
+                            <button @click="saveFromDrawer()" 
+                                    class="px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow-2xs cursor-pointer"
+                                    :class="dictResult?.isSaved ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-600 hover:bg-rose-700 text-white shadow-glow'">
+                                <i data-lucide="bookmark-check" class="w-4 h-4" x-show="dictResult?.isSaved"></i>
+                                <i data-lucide="bookmark-plus" class="w-4 h-4" x-show="!dictResult?.isSaved"></i>
+                                <span x-text="dictResult?.isSaved ? '✓ Đã Lưu' : '+ Lưu Flashcard'"></span>
+                            </button>
+                        </div>
+
+                        <!-- Pronunciation Buttons (US & UK) -->
+                        <div class="flex items-center space-x-2.5 pt-3 border-t border-slate-200/70">
+                            <button @click="playPronunciation('us')" 
+                                    class="flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-indigo-400 hover:bg-indigo-50/50 text-slate-800 text-xs font-extrabold transition shadow-2xs cursor-pointer">
+                                <i data-lucide="volume-2" class="w-3.5 h-3.5 text-indigo-600"></i>
+                                <span>Phát âm US (Mỹ)</span>
+                            </button>
+                            <button @click="playPronunciation('uk')" 
+                                    class="flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-rose-400 hover:bg-rose-50/50 text-slate-800 text-xs font-extrabold transition shadow-2xs cursor-pointer">
+                                <i data-lucide="volume-2" class="w-3.5 h-3.5 text-rose-600"></i>
+                                <span>Phát âm UK (Anh)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Vietnamese Definition -->
+                    <div class="space-y-2">
+                        <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center space-x-1.5">
+                            <i data-lucide="flag" class="w-3.5 h-3.5 text-rose-500"></i>
+                            <span>Nghĩa Tiếng Việt (Linearthinking)</span>
+                        </h5>
+                        <div class="p-4 rounded-2xl bg-rose-50/80 border border-rose-200/80 text-sm font-bold text-slate-900 leading-relaxed" 
+                             x-text="dictResult?.definition_vi"></div>
+                    </div>
+
+                    <!-- English Definition -->
+                    <div class="space-y-2" x-show="dictResult?.definition_en">
+                        <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center space-x-1.5">
+                            <i data-lucide="book" class="w-3.5 h-3.5 text-indigo-500"></i>
+                            <span>Định Nghĩa Tiếng Anh Chuẩn</span>
+                        </h5>
+                        <div class="p-4 rounded-2xl bg-white border border-slate-200 text-xs font-medium text-slate-700 leading-relaxed italic" 
+                             x-text="dictResult?.definition_en"></div>
+                    </div>
+
+                    <!-- Contextual Example -->
+                    <div class="space-y-2" x-show="dictResult?.example">
+                        <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center space-x-1.5">
+                            <i data-lucide="quote" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span>Ví Dụ Trong Ngữ Cảnh</span>
+                        </h5>
+                        <div class="p-4 rounded-2xl bg-slate-100/90 border border-slate-200/80 text-xs font-semibold text-slate-800 leading-relaxed" 
+                             x-text="dictResult?.example"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drawer Footer -->
+            <div class="p-4 border-t border-slate-200 bg-white flex items-center justify-between text-xs font-bold flex-shrink-0">
+                <a href="{{ route('flashcards.index') }}" class="text-indigo-600 hover:text-indigo-800 flex items-center space-x-1 transition">
+                    <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                    <span>Mở Sổ Từ Vựng Flashcard SM-2 →</span>
+                </a>
+                <button @click="showSearchModal = false" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition cursor-pointer">
+                    Đóng
+                </button>
+            </div>
         </div>
     </div>
 
@@ -767,33 +904,127 @@
                 streak: initialUser.streak,
                 xp: initialUser.xp,
                 searchQuery: '',
+                dictLoading: false,
+                dictResult: null,
+
+                // Popup in-text lookup
                 showPopup: false,
                 popupTop: 0,
                 popupLeft: 0,
                 selectedWord: '',
+                selectedPos: '',
                 phonetic: '',
                 definitionVi: '',
                 audioUrl: '',
+                audioUs: '',
+                audioUk: '',
                 contextSentence: '',
                 isSaved: false,
 
                 init() {
+                    // Document mouseup for in-text selection lookup
                     document.addEventListener('mouseup', (e) => {
+                        // Skip if selecting inside drawer or input
+                        if (e.target.closest('input') || e.target.closest('textarea') || e.target.closest('.fixed')) return;
+                        
                         const selection = window.getSelection();
                         const text = selection.toString().trim();
                         if (text && text.length >= 2 && text.length <= 35 && !text.includes('\n')) {
                             const range = selection.getRangeAt(0);
                             const rect = range.getBoundingClientRect();
                             this.popupTop = Math.max(10, rect.bottom + window.scrollY + 8);
-                            this.popupLeft = Math.min(window.innerWidth - 340, Math.max(10, rect.left + window.scrollX - 50));
+                            this.popupLeft = Math.min(window.innerWidth - 350, Math.max(10, rect.left + window.scrollX - 50));
                             this.lookupWord(text);
                         }
                     });
+
+                    // Shortcut Ctrl+K to open Dictionary
+                    document.addEventListener('keydown', (e) => {
+                        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                            e.preventDefault();
+                            this.openQuickDictionary();
+                        }
+                    });
+
+                    // Listen to global open-quick-dict event
+                    window.addEventListener('open-quick-dict', (e) => {
+                        this.openQuickDictionary(e.detail?.word || '');
+                    });
                 },
 
-                openQuickDictionary() {
+                openQuickDictionary(prefillWord = '') {
                     this.showSearchModal = true;
-                    this.searchQuery = '';
+                    this.showPopup = false;
+                    if (prefillWord) {
+                        this.searchQuery = prefillWord;
+                        this.searchDictionary(prefillWord);
+                    } else {
+                        setTimeout(() => {
+                            if (this.$refs.dictInput) this.$refs.dictInput.focus();
+                        }, 100);
+                    }
+                },
+
+                async searchDictionary(word) {
+                    if (!word || !word.trim()) return;
+                    this.dictLoading = true;
+                    const cleanWord = word.trim();
+
+                    try {
+                        const csrf = document.querySelector('meta[name="csrf-token"]')?.content || '';
+                        const res = await fetch('/api/dictionary/lookup', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': csrf
+                            },
+                            body: JSON.stringify({ word: cleanWord })
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            this.dictResult = {
+                                word: data.word,
+                                phonetic: data.phonetic || '',
+                                audio_us: data.audio_us || data.audio || '',
+                                audio_uk: data.audio_uk || data.audio || '',
+                                part_of_speech: data.part_of_speech || '',
+                                definition_vi: data.definition_vi || '',
+                                definition_en: data.definition_en || '',
+                                example: data.example || '',
+                                isSaved: false
+                            };
+                        } else {
+                            this.dictResult = {
+                                word: cleanWord,
+                                phonetic: '',
+                                audio_us: '',
+                                audio_uk: '',
+                                part_of_speech: '',
+                                definition_vi: data.message || 'Không tìm thấy kết quả phù hợp trong từ điển.',
+                                definition_en: '',
+                                example: '',
+                                isSaved: false
+                            };
+                        }
+                    } catch (e) {
+                        this.dictResult = {
+                            word: cleanWord,
+                            phonetic: '',
+                            audio_us: '',
+                            audio_uk: '',
+                            part_of_speech: '',
+                            definition_vi: 'Không thể tải kết quả từ điển.',
+                            definition_en: '',
+                            example: '',
+                            isSaved: false
+                        };
+                    } finally {
+                        this.dictLoading = false;
+                        this.$nextTick(() => {
+                            if (window.lucide) window.lucide.createIcons();
+                        });
+                    }
                 },
 
                 async lookupWord(word) {
@@ -802,7 +1033,10 @@
                     this.isSaved = false;
                     this.definitionVi = 'Đang tra cứu từ điển...';
                     this.phonetic = '';
+                    this.selectedPos = '';
                     this.audioUrl = '';
+                    this.audioUs = '';
+                    this.audioUk = '';
                     this.showPopup = true;
 
                     try {
@@ -819,25 +1053,79 @@
                         const data = await res.json();
                         if (data.success) {
                             this.phonetic = data.phonetic || '';
+                            this.selectedPos = data.part_of_speech || '';
                             this.definitionVi = data.definition_vi;
-                            this.audioUrl = data.audio || '';
+                            this.audioUs = data.audio_us || data.audio || '';
+                            this.audioUk = data.audio_uk || data.audio || '';
+                            this.audioUrl = this.audioUs || this.audioUk;
                         } else {
                             this.definitionVi = data.message || 'Không tìm thấy định nghĩa cho từ này.';
                         }
                     } catch (e) {
                         this.definitionVi = 'Không thể tải nghĩa từ điển.';
+                    } finally {
+                        this.$nextTick(() => {
+                            if (window.lucide) window.lucide.createIcons();
+                        });
                     }
                 },
 
-                playAudio() {
-                    if (this.audioUrl) {
-                        new Audio(this.audioUrl).play();
-                    } else if ('speechSynthesis' in window) {
+                playPronunciation(accent = 'us') {
+                    const audioUrl = (accent === 'uk') ? (this.dictResult?.audio_uk || this.dictResult?.audio_us) : (this.dictResult?.audio_us || this.dictResult?.audio_uk);
+                    const word = this.dictResult?.word || this.searchQuery;
+
+                    if (audioUrl) {
+                        new Audio(audioUrl).play().catch(() => this.speakWord(word, accent));
+                    } else {
+                        this.speakWord(word, accent);
+                    }
+                },
+
+                playAudio(accent = 'us') {
+                    const audioUrl = (accent === 'uk') ? (this.audioUk || this.audioUrl) : (this.audioUs || this.audioUrl);
+                    if (audioUrl) {
+                        new Audio(audioUrl).play().catch(() => this.speakWord(this.selectedWord, accent));
+                    } else {
+                        this.speakWord(this.selectedWord, accent);
+                    }
+                },
+
+                speakWord(word, accent = 'us') {
+                    if ('speechSynthesis' in window && word) {
                         window.speechSynthesis.cancel();
-                        const utter = new SpeechSynthesisUtterance(this.selectedWord);
-                        utter.lang = 'en-US';
+                        const utter = new SpeechSynthesisUtterance(word);
+                        utter.lang = (accent === 'uk') ? 'en-GB' : 'en-US';
+                        utter.rate = 0.9;
                         window.speechSynthesis.speak(utter);
                     }
+                },
+
+                async saveFromDrawer() {
+                    if (!this.dictResult || this.dictResult.isSaved) return;
+
+                    try {
+                        const csrf = document.querySelector('meta[name="csrf-token"]')?.content || '';
+                        const res = await fetch('/api/dictionary/save-word', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': csrf
+                            },
+                            body: JSON.stringify({
+                                word: this.dictResult.word,
+                                definition_vi: this.dictResult.definition_vi,
+                                phonetic: this.dictResult.phonetic,
+                                audio: this.dictResult.audio_us || this.dictResult.audio_uk,
+                                part_of_speech: this.dictResult.part_of_speech,
+                                context_sentence: this.dictResult.example
+                            })
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            this.dictResult.isSaved = true;
+                        }
+                    } catch (e) {}
                 },
 
                 async saveToNotebook() {
@@ -855,6 +1143,7 @@
                                 definition_vi: this.definitionVi,
                                 phonetic: this.phonetic,
                                 audio: this.audioUrl,
+                                part_of_speech: this.selectedPos,
                                 context_sentence: this.contextSentence
                             })
                         });

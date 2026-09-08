@@ -41,6 +41,9 @@ export default {
         serif: ['Newsreader', 'Lora', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
+      spacing: {
+        '18': '4.5rem',
+      },
       boxShadow: {
         'glow': '0 0 25px -5px rgba(225, 29, 72, 0.35)',
         'glow-indigo': '0 0 25px -5px rgba(99, 102, 241, 0.35)',

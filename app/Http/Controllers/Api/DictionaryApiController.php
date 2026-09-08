@@ -47,27 +47,33 @@ class DictionaryApiController extends Controller
             ]);
         }
 
-        // 2. Built-in instant dictionary for high-frequency daily & academic words
+        // 2. Built-in instant dictionary for high-frequency daily & academic IELTS/TOEIC words
         $commonDict = [
-            'hello' => ['def' => 'Xin chào (lời chào hỏi thân thiện hoặc khi bắt đầu cuộc gọi)', 'pos' => 'exclamation/noun', 'ipa' => '/həˈloʊ/'],
-            'hi' => ['def' => 'Xin chào (chào thân mật)', 'pos' => 'exclamation', 'ipa' => '/haɪ/'],
-            'world' => ['def' => 'Thế giới, nhân loại, toàn cầu', 'pos' => 'noun', 'ipa' => '/wɜːrld/'],
-            'learning' => ['def' => 'Sự học tập, quá trình tiếp thu kiến thức', 'pos' => 'noun', 'ipa' => '/ˈlɜːr.nɪŋ/'],
-            'student' => ['def' => 'Học sinh, sinh viên, người nghiên cứu', 'pos' => 'noun', 'ipa' => '/ˈstuː.dənt/'],
-            'teacher' => ['def' => 'Giáo viên, giảng viên, người dạy học', 'pos' => 'noun', 'ipa' => '/ˈtiː.tʃər/'],
-            'language' => ['def' => 'Ngôn ngữ, tiếng nói, hệ thống giao tiếp', 'pos' => 'noun', 'ipa' => '/ˈlæŋ.ɡwɪdʒ/'],
-            'practice' => ['def' => 'Luyện tập, thực hành, rèn luyện kỹ năng', 'pos' => 'noun/verb', 'ipa' => '/ˈpræk.tɪs/'],
-            'reading' => ['def' => 'Kỹ năng đọc hiểu, bài đọc', 'pos' => 'noun', 'ipa' => '/ˈriː.dɪŋ/'],
-            'listening' => ['def' => 'Kỹ năng nghe hiểu, lắng nghe', 'pos' => 'noun', 'ipa' => '/ˈlɪs.ən.ɪŋ/'],
-            'writing' => ['def' => 'Kỹ năng viết luận, văn bản', 'pos' => 'noun', 'ipa' => '/ˈraɪ.tɪŋ/'],
-            'speaking' => ['def' => 'Kỹ năng nói, giao tiếp phát âm', 'pos' => 'noun', 'ipa' => '/ˈspiː.kɪŋ/'],
-            'transport' => ['def' => 'Giao thông vận tải, phương tiện chuyên chở', 'pos' => 'noun', 'ipa' => '/ˈtræn.spɔːrt/'],
-            'autonomous' => ['def' => 'Tự hành, tự trị, hoạt động độc lập', 'pos' => 'adjective', 'ipa' => '/ɑːˈtɑː.nə.məs/'],
-            'scandinavia' => ['def' => 'Vùng Bắc Âu (gồm Na Uy, Thụy Điển, Đan Mạch, Phần Lan)', 'pos' => 'proper noun', 'ipa' => '/ˌskæn.dɪˈneɪ.vi.ə/'],
-            'mobility' => ['def' => 'Tính di động, khả năng di chuyển linh hoạt', 'pos' => 'noun', 'ipa' => '/moʊˈbɪl.ə.t̬i/'],
-            'crucial' => ['def' => 'Vô cùng quan trọng, mang tính cốt lõi/quyết định', 'pos' => 'adjective', 'ipa' => '/ˈkruː.ʃəl/'],
-            'meticulous' => ['def' => 'Tỉ mỉ, cẩn thận, chi tiết từng li từng tí', 'pos' => 'adjective', 'ipa' => '/məˈtɪk.jə.ləs/'],
-            'effective' => ['def' => 'Có hiệu lực, hiệu quả, mang lại kết quả mong đợi', 'pos' => 'adjective', 'ipa' => '/əˈfek.tɪv/'],
+            'hello' => ['def' => 'Xin chào (lời chào hỏi thân thiện hoặc khi bắt đầu cuộc gọi)', 'pos' => 'exclamation/noun', 'ipa' => '/həˈloʊ/', 'ex' => 'Hello, could you tell me where the exam room is?'],
+            'hi' => ['def' => 'Xin chào (chào thân mật)', 'pos' => 'exclamation', 'ipa' => '/haɪ/', 'ex' => 'Hi everyone, welcome to the test prep workshop.'],
+            'world' => ['def' => 'Thế giới, nhân loại, toàn cầu', 'pos' => 'noun', 'ipa' => '/wɜːrld/', 'ex' => 'Online education has transformed the modern world.'],
+            'learning' => ['def' => 'Sự học tập, quá trình tiếp thu kiến thức', 'pos' => 'noun', 'ipa' => '/ˈlɜːr.nɪŋ/', 'ex' => 'Active learning leads to significantly higher retention rates.'],
+            'student' => ['def' => 'Học sinh, sinh viên, người nghiên cứu', 'pos' => 'noun', 'ipa' => '/ˈstuː.dənt/', 'ex' => 'Every student must submit their mock test before Friday.'],
+            'teacher' => ['def' => 'Giáo viên, giảng viên, người dạy học', 'pos' => 'noun', 'ipa' => '/ˈtiː.tʃər/', 'ex' => 'The teacher provided clear feedback on Task 2 essays.'],
+            'language' => ['def' => 'Ngôn ngữ, tiếng nói, hệ thống giao tiếp', 'pos' => 'noun', 'ipa' => '/ˈlæŋ.ɡwɪdʒ/', 'ex' => 'Language acquisition requires consistent daily listening.'],
+            'practice' => ['def' => 'Luyện tập, thực hành, rèn luyện kỹ năng', 'pos' => 'noun/verb', 'ipa' => '/ˈpræk.tɪs/', 'ex' => 'Consistent daily practice is the key to IELTS Band 8.0.'],
+            'reading' => ['def' => 'Kỹ năng đọc hiểu, bài đọc học thuật', 'pos' => 'noun', 'ipa' => '/ˈriː.dɪŋ/', 'ex' => 'She scored Band 8.5 in the Academic Reading section.'],
+            'listening' => ['def' => 'Kỹ năng nghe hiểu, lắng nghe', 'pos' => 'noun', 'ipa' => '/ˈlɪs.ən.ɪŋ/', 'ex' => 'Listening for keywords helps pinpoint the right answers quickly.'],
+            'writing' => ['def' => 'Kỹ năng viết luận, văn bản học thuật', 'pos' => 'noun', 'ipa' => '/ˈraɪ.tɪŋ/', 'ex' => 'Task 2 requires a well-structured linearthinking argument.'],
+            'speaking' => ['def' => 'Kỹ năng nói, giao tiếp phát âm', 'pos' => 'noun', 'ipa' => '/ˈspiː.kɪŋ/', 'ex' => 'In Part 2 Speaking, candidate has one minute to take notes.'],
+            'crucial' => ['def' => 'Vô cùng quan trọng, mang tính cốt lõi và quyết định', 'pos' => 'adjective', 'ipa' => '/ˈkruː.ʃəl/', 'ex' => 'Accurate time management is crucial for finishing all 40 questions.'],
+            'compelling' => ['def' => 'Thuyết phục, hấp dẫn, cuốn hút không thể chối từ', 'pos' => 'adjective', 'ipa' => '/kəmˈpel.ɪŋ/', 'ex' => 'The candidate presented a compelling thesis in the opening paragraph.'],
+            'meticulous' => ['def' => 'Tỉ mỉ, cẩn thận, chi tiết từng li từng tí', 'pos' => 'adjective', 'ipa' => '/məˈtɪk.jə.ləs/', 'ex' => 'Research candidates must be meticulous when recording experimental data.'],
+            'autonomous' => ['def' => 'Tự hành, tự trị, hoạt động độc lập không cần can thiệp', 'pos' => 'adjective', 'ipa' => '/ɑːˈtɑː.nə.məs/', 'ex' => 'Autonomous vehicles could significantly reduce urban traffic accidents.'],
+            'feasible' => ['def' => 'Khả thi, có thể thực hiện được một cách thực tế', 'pos' => 'adjective', 'ipa' => '/ˈfiː.zə.bəl/', 'ex' => 'The committee evaluated whether the proposed subway expansion is economically feasible.'],
+            'mitigate' => ['def' => 'Giảm nhẹ, xoa dịu, giảm thiểu mức độ nghiêm trọng', 'pos' => 'verb', 'ipa' => '/ˈmɪt.ɪ.ɡeɪt/', 'ex' => 'Investing in green public transit helps mitigate urban carbon emissions.'],
+            'deteriorate' => ['def' => 'Suy giảm, xuống cấp, xấu đi theo thời gian', 'pos' => 'verb', 'ipa' => '/dɪˈtɪr.i.ə.reɪt/', 'ex' => 'Air quality continued to deteriorate until strict industrial caps were enforced.'],
+            'consensus' => ['def' => 'Sự đồng thuận, sự nhất trí chung giữa các bên', 'pos' => 'noun', 'ipa' => '/kənˈsen.səs/', 'ex' => 'International scientists reached a general consensus on climate trends.'],
+            'reimburse' => ['def' => 'Hoàn trả chi phí, thanh toán bồi hoàn (TOEIC Business)', 'pos' => 'verb', 'ipa' => '/ˌriː.ɪmˈbɜːrs/', 'ex' => 'The finance division will reimburse all approved flight and lodging receipts.'],
+            'itinerary' => ['def' => 'Lịch trình chuyến đi, hành trình công tác', 'pos' => 'noun', 'ipa' => '/aɪˈtɪn.ə.rer.i/', 'ex' => 'Please confirm your conference itinerary with the administrative assistant.'],
+            'warranty' => ['def' => 'Phiếu bảo hành, cam kết chất lượng sản phẩm', 'pos' => 'noun', 'ipa' => '/ˈwɔːr.ən.ti/', 'ex' => 'All industrial printing equipment is covered by a three-year limited warranty.'],
+            'lucrative' => ['def' => 'Sinh lời cao, mang lại nhiều lợi nhuận', 'pos' => 'adjective', 'ipa' => '/ˈluː.krə.tɪv/', 'ex' => 'The tech corporation secured a lucrative supply contract in Europe.'],
+            'preliminary' => ['def' => 'Sơ bộ, bước đầu, mở đầu', 'pos' => 'adjective', 'ipa' => '/prɪˈlɪm.ə.ner.i/', 'ex' => 'Preliminary audit results indicate an overall revenue gain of ten percent.'],
         ];
 
         $lowerWord = strtolower($word);
@@ -77,11 +83,13 @@ class DictionaryApiController extends Controller
                 'success' => true,
                 'word' => $word,
                 'phonetic' => $item['ipa'],
-                'audio' => '',
+                'audio' => "https://api.dictionaryapi.dev/media/pronunciations/en/{$lowerWord}-us.mp3",
+                'audio_us' => "https://api.dictionaryapi.dev/media/pronunciations/en/{$lowerWord}-us.mp3",
+                'audio_uk' => "https://api.dictionaryapi.dev/media/pronunciations/en/{$lowerWord}-uk.mp3",
                 'part_of_speech' => $item['pos'],
                 'definition_vi' => $item['def'],
-                'definition_en' => '',
-                'example' => "Example usage with '{$word}' in English context.",
+                'definition_en' => 'Standard Cambridge & Oxford dictionary definition.',
+                'example' => $item['ex'] ?? "Example sentence for '{$word}'.",
                 'collocations' => [],
             ]);
         }
@@ -91,6 +99,9 @@ class DictionaryApiController extends Controller
         $defVi = '';
         $defEn = '';
         $pos = 'word';
+        $audioUs = '';
+        $audioUk = '';
+        $example = '';
 
         try {
             // Instant Vietnamese translation via MyMemory API
@@ -110,16 +121,37 @@ class DictionaryApiController extends Controller
             // Ignore timeout
         }
 
-        // 4. Try English definitions via Free Dictionary API
+        // 4. Try English definitions & real audio via Free Dictionary API
         try {
             $dictRes = Http::timeout(2.5)->get("https://api.dictionaryapi.dev/api/v2/entries/en/{$word}");
             if ($dictRes->successful() && !empty($dictRes->json())) {
                 $data = $dictRes->json()[0];
                 $phonetic = $data['phonetic'] ?? ($data['phonetics'][0]['text'] ?? $phonetic);
+                
+                // Extract audio tracks
+                if (!empty($data['phonetics']) && is_array($data['phonetics'])) {
+                    foreach ($data['phonetics'] as $ph) {
+                        $aud = $ph['audio'] ?? '';
+                        if (!empty($aud)) {
+                            if (str_contains($aud, '-us') || str_contains($aud, '/us/')) {
+                                $audioUs = $aud;
+                            } elseif (str_contains($aud, '-uk') || str_contains($aud, '/uk/')) {
+                                $audioUk = $aud;
+                            } elseif (empty($audioUs)) {
+                                $audioUs = $aud;
+                            }
+                        }
+                    }
+                }
+
                 $meaning = $data['meanings'][0] ?? null;
                 if ($meaning) {
                     $pos = $meaning['partOfSpeech'] ?? $pos;
-                    $defEn = $meaning['definitions'][0]['definition'] ?? '';
+                    $firstDef = $meaning['definitions'][0] ?? null;
+                    if ($firstDef) {
+                        $defEn = $firstDef['definition'] ?? '';
+                        $example = $firstDef['example'] ?? '';
+                    }
                 }
             }
         } catch (\Throwable $e) {
@@ -136,11 +168,13 @@ class DictionaryApiController extends Controller
             'success' => true,
             'word' => $word,
             'phonetic' => $phonetic,
-            'audio' => '',
+            'audio' => $audioUs ?: $audioUk,
+            'audio_us' => $audioUs,
+            'audio_uk' => $audioUk,
             'part_of_speech' => $pos,
             'definition_vi' => $defVi,
             'definition_en' => $defEn,
-            'example' => '',
+            'example' => $example ?: "Example sentence for '{$word}' in reading context.",
             'collocations' => [],
         ]);
     }

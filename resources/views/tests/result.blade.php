@@ -18,14 +18,39 @@
                     Thời gian làm bài: <span class="font-bold text-white">{{ gmdate("i:s", $submission->time_spent_seconds) }}</span> • 
                     Nộp lúc: {{ $submission->created_at->format('H:i - d/m/Y') }}
                 </p>
+                <div class="flex items-center space-x-3 pt-2">
+                    <a href="{{ route('ielts.take', $submission->test->slug) }}" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold transition shadow-glow flex items-center space-x-1.5">
+                        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                        <span>Làm lại đề này</span>
+                    </a>
+                    @if($submission->test->testSet)
+                    <a href="{{ route('ielts.show_set', $submission->test->testSet->slug) }}" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition flex items-center space-x-1.5">
+                        <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                        <span>Chọn phần luyện khác</span>
+                    </a>
+                    @endif
+                </div>
             </div>
 
-            <!-- Band Score Badge -->
+            <!-- Score Badge (IELTS or TOEIC) -->
+            @php
+                $isToeic = str_contains(strtolower($submission->test->type ?? ''), 'toeic') || str_contains(strtolower($submission->test->title ?? ''), 'toeic');
+                $totalQ = $submission->test->total_questions ?: 10;
+            @endphp
             <div class="md:col-span-4 flex flex-col items-center justify-center p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
-                <span class="text-xs font-bold uppercase tracking-widest text-slate-300">IELTS BAND SCORE</span>
-                <span class="text-5xl font-black text-rose-400 my-1">{{ number_format($submission->band_score, 1) }}</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-300">
+                    {{ $isToeic ? 'TOEIC ESTIMATED SCORE' : 'IELTS BAND SCORE' }}
+                </span>
+                <span class="text-5xl font-black text-rose-400 my-1">
+                    @if($isToeic)
+                        {{ round(($submission->score_raw / max(1, $totalQ)) * 495) }}
+                        <span class="text-xs text-slate-300 font-bold block mt-0.5">/ 495 điểm</span>
+                    @else
+                        {{ number_format($submission->band_score, 1) }}
+                    @endif
+                </span>
                 <span class="text-xs font-semibold text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full mt-1">
-                    Đúng {{ $submission->score_raw }}/{{ $submission->test->total_questions }} câu ({{ round(($submission->score_raw / max(1, $submission->test->total_questions)) * 100) }}%)
+                    Đúng {{ $submission->score_raw }}/{{ $totalQ }} câu ({{ round(($submission->score_raw / max(1, $totalQ)) * 100) }}%)
                 </span>
             </div>
         </div>
