@@ -1,0 +1,46 @@
+{
+  "_vendor-alpine-B5i1UGG1.js": {
+    "file": "assets/vendor-alpine-B5i1UGG1.js",
+    "name": "vendor-alpine"
+  },
+  "_vendor-core-BCn5QfZZ.js": {
+    "file": "assets/vendor-core-BCn5QfZZ.js",
+    "name": "vendor-core"
+  },
+  "_vendor-icons-D88e-uSt.js": {
+    "file": "assets/vendor-icons-D88e-uSt.js",
+    "name": "vendor-icons"
+  },
+  "node_modules/apexcharts/dist/apexcharts.esm.js": {
+    "file": "assets/vendor-apexcharts-USswz5Wl.js",
+    "name": "vendor-apexcharts",
+    "src": "node_modules/apexcharts/dist/apexcharts.esm.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/canvas-confetti/dist/confetti.module.mjs": {
+    "file": "assets/vendor-audio-fx-DX0toIYy.js",
+    "name": "vendor-audio-fx",
+    "src": "node_modules/canvas-confetti/dist/confetti.module.mjs",
+    "isDynamicEntry": true
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-D_YAdCkd.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CR-shrSu.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-core-BCn5QfZZ.js",
+      "_vendor-alpine-B5i1UGG1.js",
+      "_vendor-icons-D88e-uSt.js"
+    ],
+    "dynamicImports": [
+      "node_modules/apexcharts/dist/apexcharts.esm.js",
+      "node_modules/canvas-confetti/dist/confetti.module.mjs"
+    ]
+  }
+}
