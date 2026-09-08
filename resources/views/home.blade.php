@@ -64,7 +64,7 @@
                                     9.0
                                 </div>
                                 <div class="min-w-0">
-                                    <h4 class="font-bold font-display text-slate-900 text-xs sm:text-base truncate">Cambridge IELTS 19</h4>
+                                    <div class="font-bold font-display text-slate-900 text-xs sm:text-base truncate">Cambridge IELTS 19</div>
                                     <p class="text-[11px] sm:text-xs text-slate-600 font-medium truncate">Test 1 • Reading Academic</p>
                                 </div>
                             </div>
@@ -159,15 +159,17 @@
             @foreach($featuredTests as $test)
             <div class="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-card hover:shadow-md transition flex flex-col justify-between">
                 <div class="p-5 sm:p-6 space-y-3">
-                    <div class="flex items-center justify-between text-xs font-bold text-slate-500">
-                        <span class="px-2.5 py-0.5 rounded-md bg-rose-50 text-rose-600 uppercase font-extrabold">{{ $test->type }}</span>
+                    <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+                        <span class="px-2.5 py-0.5 rounded-md bg-rose-50 text-rose-700 uppercase font-extrabold">{{ $test->type }}</span>
                         <span>⏱ {{ $test->duration_minutes }} phút</span>
                     </div>
                     <h3 class="font-bold font-display text-slate-900 text-base leading-snug line-clamp-2">{{ $test->title }}</h3>
-                    <p class="text-xs text-slate-500 font-medium">{{ $test->total_questions }} câu hỏi • 40 Band Score</p>
+                    <p class="text-xs text-slate-600 font-medium">{{ $test->total_questions }} câu hỏi • 40 Band Score</p>
                 </div>
                 <div class="p-5 sm:p-6 pt-0">
-                    <a href="{{ route('ielts.take', ['slug' => $test->slug]) }}" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl text-center block transition shadow-xs">
+                    <a href="{{ route('ielts.take', ['slug' => $test->slug]) }}" 
+                       aria-label="Làm bài thi {{ $test->title }}"
+                       class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl text-center block transition shadow-xs">
                         Làm Bài Thi →
                     </a>
                 </div>

@@ -367,7 +367,7 @@
                     <div class="relative flex-shrink-0" x-data="{ openProfile: false }" @click.outside="openProfile = false">
                         <button @click="openProfile = !openProfile" 
                                 aria-label="Mở menu tài khoản cá nhân"
-                                aria-expanded="openProfile"
+                                :aria-expanded="openProfile ? 'true' : 'false'"
                                 class="flex items-center space-x-1.5 p-1 rounded-2xl hover:bg-slate-100 transition focus:outline-none ring-2 ring-transparent focus:ring-rose-500/30">
                             <div class="relative">
                                 <img src="{{ $currentUser->avatar ?: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80' }}" 
@@ -477,7 +477,7 @@
                     <!-- Mobile Hamburger Button -->
                     <button @click="mobileMenuOpen = !mobileMenuOpen" 
                             aria-label="Mở hoặc đóng menu điều hướng trên thiết bị di động"
-                            aria-expanded="mobileMenuOpen"
+                            :aria-expanded="mobileMenuOpen ? 'true' : 'false'"
                             class="lg:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition flex-shrink-0">
                         <i data-lucide="menu" class="w-6 h-6" x-show="!mobileMenuOpen" aria-hidden="true"></i>
                         <i data-lucide="x" class="w-6 h-6" x-show="mobileMenuOpen" style="display: none;" aria-hidden="true"></i>
@@ -588,20 +588,218 @@
         @yield('content')
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-12 mt-16">
+    <!-- Main Footer - Full SEO, E-E-A-T & Semantic Structure -->
+    <footer class="bg-white border-t border-slate-200 mt-20 pt-16 pb-12 text-slate-700" itemscope itemtype="https://schema.org/WPFooter">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-xl bg-rose-600 flex items-center justify-center text-white">
-                        <i data-lucide="zap" class="w-4 h-4 fill-current"></i>
+            <!-- Top Footer: 4 Multi-Column Information Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-slate-200">
+                
+                <!-- Column 1: Brand, Mission, Organization Info & Contact (Lg: col-span-4) -->
+                <div class="lg:col-span-4 space-y-5">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-rose-600 to-rose-700 flex items-center justify-center text-white shadow-glow">
+                            <i data-lucide="zap" class="w-5 h-5 fill-current" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-black font-display text-slate-900 tracking-tight block">EduLearn English</span>
+                            <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider block font-mono">DOL Linearthinking Method</span>
+                        </div>
                     </div>
-                    <span class="text-lg font-black font-display text-slate-900">EduLearn English</span>
-                    <span class="text-xs text-slate-400">© 2026</span>
+                    
+                    <p class="text-sm text-slate-600 leading-relaxed font-medium">
+                        Hệ thống tự học và luyện thi IELTS, TOEIC trực tuyến ứng dụng độc quyền phương pháp tư duy <strong>Linearthinking</strong>. Tối ưu 50% thời gian làm bài, nhớ từ vựng sâu qua ngữ cảnh và bứt phá band điểm 8.0+.
+                    </p>
+
+                    <!-- Contact & Entity Details (Local SEO & Authority) -->
+                    <div class="space-y-2.5 pt-2 text-xs font-semibold text-slate-700">
+                        <div class="flex items-center space-x-2.5">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-rose-600 flex-shrink-0" aria-hidden="true"></i>
+                            <span>Hotline tư vấn: <a href="tel:19008668" class="font-bold text-slate-900 hover:text-rose-600 transition">1900 8668</a> (8:00 - 21:30 hàng ngày)</span>
+                        </div>
+                        <div class="flex items-center space-x-2.5">
+                            <i data-lucide="mail" class="w-4 h-4 text-rose-600 flex-shrink-0" aria-hidden="true"></i>
+                            <span>Email hỗ trợ: <a href="mailto:support@edulearn.edu.vn" class="font-bold text-slate-900 hover:text-rose-600 transition">support@edulearn.edu.vn</a></span>
+                        </div>
+                        <div class="flex items-start space-x-2.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                            <span class="leading-relaxed">Cơ sở học thuật: Tòa nhà EduLearn Innovation, Đống Đa, Hà Nội & Quận 1, TP. Hồ Chí Minh</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Channels -->
+                    <div class="flex items-center space-x-3 pt-2">
+                        <span class="text-xs font-bold text-slate-900 mr-1">Kết nối:</span>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Fanpage Facebook EduLearn English" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 flex items-center justify-center transition border border-slate-200 hover:border-rose-300">
+                            <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Kênh Youtube Học IELTS DOL" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 flex items-center justify-center transition border border-slate-200 hover:border-rose-300">
+                            <i data-lucide="youtube" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="Kênh TikTok Luyện Thi IELTS" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 flex items-center justify-center transition border border-slate-200 hover:border-rose-300">
+                            <i data-lucide="video" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="text-xs font-semibold text-slate-500 text-center md:text-right space-y-1">
-                    <p>Nền tảng tự học IELTS ứng dụng phương pháp <strong class="text-slate-800">DOL Linearthinking</strong></p>
-                    <p class="text-slate-400">Kiến trúc Senior+ DDD • Clean Architecture • CQRS • Zero Race Conditions</p>
+
+                <!-- Column 2: Luyện Thi & Bộ Đề (Lg: col-span-3) -->
+                <div class="lg:col-span-3 space-y-4">
+                    <p class="text-sm font-black font-display uppercase tracking-wider text-slate-900 border-l-4 border-rose-600 pl-2.5">
+                        Kho Đề & Luyện Thi
+                    </p>
+                    <ul class="space-y-2.5 text-xs font-semibold text-slate-600">
+                        <li>
+                            <a href="{{ route('ielts.index') }}" class="hover:text-rose-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-500" aria-hidden="true"></i>
+                                <span>IELTS Academic (Cambridge 10-19)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('ielts.index') }}?category=ielts-general-training" class="hover:text-rose-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-500" aria-hidden="true"></i>
+                                <span>IELTS General Training Mới Nhất</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('ielts.index') }}?category=toeic-reading-listening" class="hover:text-rose-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-500" aria-hidden="true"></i>
+                                <span>Luyện Thi TOEIC 7 Part Chuẩn ETS</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('ielts.index') }}?category=ielts-recent-actual-tests" class="hover:text-rose-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-500" aria-hidden="true"></i>
+                                <span>Đề Thi Thật Forecast & Actual 2025</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('roadmaps.index') }}" class="hover:text-rose-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-500" aria-hidden="true"></i>
+                                <span>Lộ Trình Học Cá Nhân Hóa Theo Band</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('ielts.take', 'cambridge-19-test-1-reading') }}" class="hover:text-rose-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-500" aria-hidden="true"></i>
+                                <span>Phòng Thi Thử Full 40 Câu (Miễn Phí)</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Kỹ Năng & Công Cụ Học Tập (Lg: col-span-3) -->
+                <div class="lg:col-span-3 space-y-4">
+                    <p class="text-sm font-black font-display uppercase tracking-wider text-slate-900 border-l-4 border-indigo-600 pl-2.5">
+                        Kỹ Năng & Công Cụ
+                    </p>
+                    <ul class="space-y-2.5 text-xs font-semibold text-slate-600">
+                        <li>
+                            <a href="{{ route('dictation.index') }}" class="hover:text-indigo-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-500" aria-hidden="true"></i>
+                                <span>Nghe Chép Chính Tả (Dictation Studio)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('flashcards.index') }}" class="hover:text-indigo-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-500" aria-hidden="true"></i>
+                                <span>Sổ Từ Vựng & Flashcard Lặp Lại SM-2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('ai.writing.index') }}" class="hover:text-indigo-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-500" aria-hidden="true"></i>
+                                <span>AI Chấm Writing Chuẩn 4 Tiêu Chí IELTS</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('samples.writing.index') }}" class="hover:text-indigo-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-500" aria-hidden="true"></i>
+                                <span>Ngân Hàng Bài Mẫu Writing Band 8.0+</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('samples.speaking.index') }}" class="hover:text-indigo-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-500" aria-hidden="true"></i>
+                                <span>Bài Mẫu Speaking Part 1, 2, 3 Audio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tools.converter') }}" class="hover:text-indigo-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-500" aria-hidden="true"></i>
+                                <span>Bảng Quy Đổi Điểm IELTS & TOEIC</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tools.ipa') }}" class="hover:text-indigo-600 hover:translate-x-1 inline-flex items-center space-x-1.5 transition">
+                                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-500" aria-hidden="true"></i>
+                                <span>Bảng Phiên Âm Quốc Tế IPA Tương Tác</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Về EduLearn & Cam Kết Chất Lượng (Lg: col-span-2) -->
+                <div class="lg:col-span-2 space-y-4">
+                    <p class="text-sm font-black font-display uppercase tracking-wider text-slate-900 border-l-4 border-emerald-600 pl-2.5">
+                        Về EduLearn
+                    </p>
+                    <ul class="space-y-2.5 text-xs font-semibold text-slate-600">
+                        <li>
+                            <a href="{{ route('home') }}" class="hover:text-slate-900 hover:underline transition">
+                                Phương pháp Linearthinking
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('dashboard') }}" class="hover:text-slate-900 hover:underline transition">
+                                Radar Phân Tích Kỹ Năng
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" class="hover:text-slate-900 hover:underline transition">
+                                Đội Ngũ Giảng Viên 8.5+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" class="hover:text-slate-900 hover:underline transition">
+                                Điều Khoản Dịch Vụ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" class="hover:text-slate-900 hover:underline transition">
+                                Chính Sách Bảo Mật
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" class="hover:text-slate-900 hover:underline transition">
+                                Hướng Dẫn Tự Học Hiệu Quả
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Trust Seal Badges -->
+                    <div class="pt-2 space-y-2">
+                        <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-[10px] font-extrabold text-emerald-800">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600" aria-hidden="true"></i>
+                            <span>Bảo Mật SSL 256-Bit</span>
+                        </span>
+                        <span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-[10px] font-extrabold text-slate-700">
+                            <i data-lucide="award" class="w-3.5 h-3.5 text-slate-600" aria-hidden="true"></i>
+                            <span>Chuẩn Học Thuật CEFR</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Legal, Copyright & Badges -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-600">
+                <p>
+                    © 2026 <strong class="text-slate-900">EduLearn English</strong>. Hệ thống tự học tiếng Anh trực tuyến ứng dụng phương pháp Linearthinking.
+                </p>
+                <div class="flex items-center space-x-4 text-slate-600">
+                    <a href="{{ route('home') }}" class="hover:text-rose-600 transition">Quy chế hoạt động</a>
+                    <span>•</span>
+                    <a href="{{ route('home') }}" class="hover:text-rose-600 transition">Chính sách bảo mật</a>
+                    <span>•</span>
+                    <a href="{{ route('home') }}" class="hover:text-rose-600 transition">Điều khoản sử dụng</a>
                 </div>
             </div>
         </div>
