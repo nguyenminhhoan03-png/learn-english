@@ -141,62 +141,82 @@
                             <div x-show="activeDropdown === 'ielts'" 
                                  x-cloak 
                                  x-transition:enter="transition ease-out duration-150"
-                                 x-transition:enter-start="opacity-0 translate-y-1"
-                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:enter-start="opacity-0 translate-y-1 scale-98"
+                                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                                  x-transition:leave="transition ease-in duration-100"
-                                 x-transition:leave-start="opacity-100 translate-y-0"
-                                 x-transition:leave-end="opacity-0 translate-y-1"
-                                 class="absolute top-full left-0 w-84 bg-white rounded-2xl shadow-dropdown border border-slate-200/90 p-2.5 space-y-1 z-50">
+                                 x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                                 x-transition:leave-end="opacity-0 translate-y-1 scale-98"
+                                 class="absolute top-full left-0 w-[560px] bg-white rounded-2xl shadow-dropdown border border-slate-200/90 z-50 overflow-hidden">
                                 
-                                <a href="{{ route('ielts.index', ['category' => 'ielts-academic']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-rose-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition">
-                                        <i data-lucide="library" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition">IELTS Academic (Cam 10 - 19)</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">40+ đề thi Academic có giải thích Linearthinking</p>
-                                    </div>
-                                </a>
+                                <div class="p-3 grid grid-cols-2 gap-2">
+                                    <a href="{{ route('ielts.index', ['category' => 'ielts-academic']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-rose-50/70 border border-transparent hover:border-rose-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-rose-50 border border-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition">IELTS Academic</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-rose-100 text-rose-700">Cam 19</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed truncate mt-0.5">40+ đề thi kèm giải thích chi tiết</p>
+                                        </div>
+                                    </a>
 
-                                <a href="{{ route('ielts.index', ['category' => 'toeic-reading-listening']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-indigo-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition">
-                                        <i data-lucide="award" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">TOEIC ETS 2024 (Reading & Listening)</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Bẫy ngữ pháp Part 5 trong 15s & Đọc hiểu Part 7</p>
-                                    </div>
-                                </a>
+                                    <a href="{{ route('ielts.index', ['category' => 'toeic-reading-listening']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-indigo-50/70 border border-transparent hover:border-indigo-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="award" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">TOEIC ETS 2024</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-indigo-100 text-indigo-700">7 Part</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed truncate mt-0.5">Part 5 phản xạ & Đọc hiểu Part 7</p>
+                                        </div>
+                                    </a>
 
-                                <a href="{{ route('ielts.index', ['category' => 'ielts-general-training']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-emerald-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition">
-                                        <i data-lucide="file-text" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">IELTS General Training (Định Cư)</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Văn bản công sở, thông báo và đời sống thực tế</p>
-                                    </div>
-                                </a>
+                                    <a href="{{ route('ielts.index', ['category' => 'ielts-general-training']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-emerald-50/70 border border-transparent hover:border-emerald-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="file-text" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">General Training</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-emerald-100 text-emerald-700">Định Cư</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed truncate mt-0.5">Văn bản công sở & đời sống thực tế</p>
+                                        </div>
+                                    </a>
 
-                                <a href="{{ route('ielts.index', ['category' => 'ielts-recent-actual-tests']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-amber-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition">
-                                        <i data-lucide="zap" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition">IELTS Forecast Actual Tests 2025</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Bộ đề dự đoán đề thi thật quý 1 & 2 năm 2025</p>
-                                    </div>
-                                </a>
+                                    <a href="{{ route('ielts.index', ['category' => 'ielts-recent-actual-tests']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-amber-50/70 border border-transparent hover:border-amber-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="zap" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition">Forecast Actual</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-amber-100 text-amber-700">Mới 2025</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed truncate mt-0.5">Đề thi thật dự đoán quý 1 & 2</p>
+                                        </div>
+                                    </a>
+                                </div>
 
-                                <a href="{{ route('ielts.take', ['slug' => 'cambridge-19-test-1-reading', 'mode' => 'full_test']) }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-slate-100 group transition border-t border-slate-100 pt-2 mt-1">
-                                    <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center flex-shrink-0">
-                                        <i data-lucide="timer" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition">Vào Phòng Thi Thử Full Test</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Bấm giờ nghiêm ngặt, tự động tính Band 9.0</p>
-                                    </div>
-                                </a>
+                                <!-- Highlight Footer Banner -->
+                                <div class="p-2.5 bg-slate-50 border-t border-slate-100">
+                                    <a href="{{ route('ielts.take', ['slug' => 'cambridge-19-test-1-reading', 'mode' => 'full_test']) }}" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white hover:bg-rose-50/60 border border-slate-200/80 hover:border-rose-200 text-slate-900 group transition shadow-2xs">
+                                        <div class="flex items-center space-x-2.5">
+                                            <div class="w-7 h-7 rounded-lg bg-rose-600 text-white flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="timer" class="w-4 h-4"></i>
+                                            </div>
+                                            <div>
+                                                <span class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition">Phòng Thi Thử Full Test Bấm Giờ</span>
+                                                <span class="text-[11px] text-slate-500 block">Tự động chấm điểm & quy đổi Band 9.0 chuẩn giám khảo</span>
+                                            </div>
+                                        </div>
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400 group-hover:text-rose-600 group-hover:translate-x-1 transition-all"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -212,42 +232,60 @@
                             <div x-show="activeDropdown === 'skills'" 
                                  x-cloak 
                                  x-transition:enter="transition ease-out duration-150"
-                                 x-transition:enter-start="opacity-0 translate-y-1"
-                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:enter-start="opacity-0 translate-y-1 scale-98"
+                                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                                  x-transition:leave="transition ease-in duration-100"
-                                 x-transition:leave-start="opacity-100 translate-y-0"
-                                 x-transition:leave-end="opacity-0 translate-y-1"
-                                 class="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-dropdown border border-slate-200/90 p-2.5 space-y-1 z-50">
+                                 x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                                 x-transition:leave-end="opacity-0 translate-y-1 scale-98"
+                                 class="absolute top-full left-0 w-[460px] bg-white rounded-2xl shadow-dropdown border border-slate-200/90 z-50 overflow-hidden">
                                 
-                                <a href="{{ route('dictation.index') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-indigo-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition">
-                                        <i data-lucide="headphones" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">Nghe Chép Chính Tả (Dictation)</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Luyện tai bắt âm, sửa bẫy nuốt & nối âm</p>
-                                    </div>
-                                </a>
+                                <div class="p-3 space-y-1.5">
+                                    <a href="{{ route('dictation.index') }}" class="flex items-start space-x-3.5 p-2.5 rounded-xl hover:bg-indigo-50/70 border border-transparent hover:border-indigo-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="headphones" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">Nghe Chép Chính Tả (Dictation)</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-indigo-100 text-indigo-700">Luyện Tai</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed mt-0.5">Luyện tai bắt âm chuẩn xác, xử lý bẫy nuốt & nối âm bản xứ</p>
+                                        </div>
+                                    </a>
 
-                                <a href="{{ route('samples.writing.index') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-rose-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition">
-                                        <i data-lucide="file-check-2" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition">Kho Bài Mẫu Writing Band 8.0+</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Dàn bài logic nòng cốt Linearthinking</p>
-                                    </div>
-                                </a>
+                                    <a href="{{ route('samples.writing.index') }}" class="flex items-start space-x-3.5 p-2.5 rounded-xl hover:bg-rose-50/70 border border-transparent hover:border-rose-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-rose-50 border border-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="file-check-2" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition">Kho Bài Mẫu Writing Band 8.0+</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-rose-100 text-rose-700">Linearthinking</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed mt-0.5">Dàn ý logic nòng cốt, cấu trúc diễn đạt mạch lạc không lạc đề</p>
+                                        </div>
+                                    </a>
 
-                                <a href="{{ route('samples.speaking.index') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-amber-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition">
-                                        <i data-lucide="mic" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition">Kho Bài Mẫu Speaking Part 1-2-3</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Phát âm IPA và từ vựng mở rộng theo chủ đề</p>
-                                    </div>
-                                </a>
+                                    <a href="{{ route('samples.speaking.index') }}" class="flex items-start space-x-3.5 p-2.5 rounded-xl hover:bg-amber-50/70 border border-transparent hover:border-amber-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="mic" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition">Kho Bài Mẫu Speaking Part 1-2-3</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-amber-100 text-amber-700">Audio US/UK</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed mt-0.5">Nghe phát âm chuẩn IPA và mở rộng từ vựng linh hoạt theo chủ đề</p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="p-2.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs px-3.5">
+                                    <span class="text-slate-500 text-[11px] font-medium">Học theo phương pháp <strong>Linearthinking</strong> độc quyền</span>
+                                    <a href="{{ route('roadmaps.index') }}" class="inline-flex items-center text-rose-600 hover:text-rose-700 font-bold text-[11px] group">
+                                        Lộ trình cá nhân hóa <i data-lucide="chevron-right" class="w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -263,62 +301,82 @@
                             <div x-show="activeDropdown === 'ai_tools'" 
                                  x-cloak 
                                  x-transition:enter="transition ease-out duration-150"
-                                 x-transition:enter-start="opacity-0 translate-y-1"
-                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:enter-start="opacity-0 translate-y-1 scale-98"
+                                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                                  x-transition:leave="transition ease-in duration-100"
-                                 x-transition:leave-start="opacity-100 translate-y-0"
-                                 x-transition:leave-end="opacity-0 translate-y-1"
-                                 class="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-dropdown border border-slate-200/90 p-2.5 space-y-1 z-50">
+                                 x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                                 x-transition:leave-end="opacity-0 translate-y-1 scale-98"
+                                 class="absolute top-full left-0 xl:left-auto xl:right-[-60px] w-[560px] bg-white rounded-2xl shadow-dropdown border border-slate-200/90 z-50 overflow-hidden">
                                 
-                                <a href="{{ route('ai.writing.index') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-purple-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition">
-                                        <i data-lucide="wand-2" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-purple-600 transition">AI Chấm Bài Writing 4 Tiêu Chí</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Chấm TR, CC, LR, GRA và sửa lỗi chi tiết</p>
-                                    </div>
-                                </a>
+                                <div class="p-3 grid grid-cols-2 gap-2">
+                                    <a href="{{ route('ai.writing.index') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-purple-50/70 border border-transparent hover:border-purple-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="wand-2" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-purple-600 transition">AI Chấm Writing</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-purple-100 text-purple-700">4 Tiêu Chí</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed truncate mt-0.5">Chấm TR, CC, LR, GRA & sửa lỗi</p>
+                                        </div>
+                                    </a>
 
-                                <a href="{{ route('flashcards.index') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-amber-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition">
-                                        <i data-lucide="layers" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition">Sổ Từ Vựng Flashcard SM-2</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Thuật toán lặp lại ngắt quãng Spaced Repetition</p>
-                                    </div>
-                                </a>
+                                    <a href="{{ route('flashcards.index') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-amber-50/70 border border-transparent hover:border-amber-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="layers" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition">Flashcard SM-2</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-amber-100 text-amber-700">Thuật Toán</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed truncate mt-0.5">Lặp lại ngắt quãng Spaced Repetition</p>
+                                        </div>
+                                    </a>
 
-                                <a href="{{ route('tools.converter') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-emerald-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition">
-                                        <i data-lucide="award" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">Bảng Quy Đổi Điểm IELTS / TOEIC</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Quy đổi Raw score sang Band 9.0, TOEIC 990 & CEFR</p>
-                                    </div>
-                                </a>
+                                    <a href="{{ route('tools.converter') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-emerald-50/70 border border-transparent hover:border-emerald-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="award" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">Bảng Quy Đổi Điểm</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-emerald-100 text-emerald-700">IELTS • TOEIC</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed truncate mt-0.5">Đổi Raw score sang Band 9.0 & CEFR</p>
+                                        </div>
+                                    </a>
 
-                                <a href="{{ route('tools.ipa') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-rose-50/70 group transition">
-                                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition">
-                                        <i data-lucide="mic" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition">Bảng 44 Âm IPA Tương Tác</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Luyện phát âm chuẩn nguyên âm, phụ âm Oxford</p>
-                                    </div>
-                                </a>
+                                    <a href="{{ route('tools.ipa') }}" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-rose-50/70 border border-transparent hover:border-rose-100 group transition">
+                                        <div class="w-10 h-10 rounded-xl bg-rose-50 border border-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition shadow-2xs">
+                                            <i data-lucide="mic" class="w-5 h-5"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex items-center space-x-1.5">
+                                                <p class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition">Bảng 44 Âm IPA</p>
+                                                <span class="px-1.5 py-0.2 text-[9px] font-black uppercase rounded bg-rose-100 text-rose-700">Oxford</span>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 font-medium leading-relaxed truncate mt-0.5">Phát âm chuẩn nguyên âm, phụ âm</p>
+                                        </div>
+                                    </a>
+                                </div>
 
-                                <button @click="openQuickDictionary(); activeDropdown = null;" class="w-full flex items-start space-x-3 p-2.5 rounded-xl hover:bg-slate-100 group transition text-left">
-                                    <div class="w-8 h-8 rounded-lg bg-slate-200 text-slate-700 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-900 group-hover:text-white transition">
-                                        <i data-lucide="search" class="w-4 h-4"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-slate-900 group-hover:text-slate-900 transition">Tra Cứu Từ Điển 1-Chạm</p>
-                                        <p class="text-[11px] text-slate-400 font-medium">Tra nhanh nghĩa, IPA và nghe audio US/UK</p>
-                                    </div>
-                                </button>
+                                <!-- Quick Dictionary Action Bar -->
+                                <div class="p-2.5 bg-slate-50 border-t border-slate-100">
+                                    <button @click="openQuickDictionary(); activeDropdown = null;" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white hover:bg-slate-100/80 border border-slate-200/80 text-slate-800 font-bold text-xs group transition shadow-2xs cursor-pointer">
+                                        <div class="flex items-center space-x-2.5">
+                                            <div class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="search" class="w-4 h-4"></i>
+                                            </div>
+                                            <div class="text-left">
+                                                <span class="text-xs font-bold text-slate-900 group-hover:text-rose-600 transition block">Tra Cứu Từ Điển 1-Chạm Thông Minh</span>
+                                                <span class="text-[11px] text-slate-500 font-normal">Nghĩa tiếng Việt Linearthinking, IPA & Audio US/UK</span>
+                                            </div>
+                                        </div>
+                                        <kbd class="px-2 py-0.5 text-[10px] bg-slate-100 border border-slate-300 rounded text-slate-600 font-mono font-semibold">⌘K</kbd>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
