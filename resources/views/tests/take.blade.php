@@ -52,10 +52,10 @@
 
 <div x-data="examRoom()" x-init="initRoom()" class="flex flex-col h-[calc(100vh-4.5rem)] sm:h-[calc(100vh-5rem)] overflow-hidden bg-slate-100 font-sans select-text">
     <!-- Top Fixed Exam Control Bar -->
-    <header class="bg-white border-b border-slate-200 px-3 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 shadow-xs z-30 flex-shrink-0">
+    <header class="bg-white border-b border-slate-200 px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2.5 sm:gap-4 shadow-xs z-30 flex-shrink-0 relative">
         <!-- Left: Back + Test Title & Badges -->
-        <div class="flex items-center space-x-2.5 sm:space-x-3.5 min-w-0">
-            <button @click="exitTest()" class="p-1.5 sm:p-2 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition flex-shrink-0" title="Thoát phòng thi">
+        <div class="flex items-center space-x-2.5 sm:space-x-3.5 min-w-0 max-w-[32%] lg:max-w-[36%] z-10">
+            <button @click="exitTest()" class="p-1.5 sm:p-2 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition flex-shrink-0 cursor-pointer" title="Thoát phòng thi">
                 <i data-lucide="arrow-left" class="w-5 h-5"></i>
             </button>
             <div class="min-w-0">
@@ -85,15 +85,15 @@
             </div>
         </div>
 
-        <!-- Center Tools: Layout Switcher, Font Size, Quick Dictionary -->
-        <div class="hidden md:flex items-center space-x-2">
+        <!-- Center Tools: Layout Switcher, Font Size, Quick Dictionary (Strictly Centered) -->
+        <div class="hidden md:flex items-center space-x-2 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20">
             <!-- View Mode Switcher -->
             @if($hasAnyPassage)
             <div class="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-xs font-bold">
                 <button type="button" 
                         @click="layoutMode = 'split'" 
                         :class="layoutMode === 'split' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-800'"
-                        class="px-2.5 py-1.5 rounded-lg transition flex items-center space-x-1.5" 
+                        class="px-2.5 py-1.5 rounded-lg transition flex items-center space-x-1.5 cursor-pointer" 
                         title="Chia đôi màn hình: Bài đọc & Câu hỏi song song">
                     <i data-lucide="columns-2" class="w-3.5 h-3.5"></i>
                     <span class="hidden lg:inline">Chia Đôi</span>
@@ -101,7 +101,7 @@
                 <button type="button" 
                         @click="layoutMode = 'single'" 
                         :class="layoutMode === 'single' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-800'"
-                        class="px-2.5 py-1.5 rounded-lg transition flex items-center space-x-1.5" 
+                        class="px-2.5 py-1.5 rounded-lg transition flex items-center space-x-1.5 cursor-pointer" 
                         title="Một cột rộng: Tập trung câu hỏi">
                     <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
                     <span class="hidden lg:inline">Toàn Cột</span>
@@ -111,15 +111,15 @@
 
             <!-- Font Size Adjuster -->
             <div class="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-xs font-bold">
-                <button @click="setFontSize('sm')" :class="fontSize === 'sm' ? 'bg-white text-slate-900 shadow-xs font-black' : 'text-slate-500'" class="px-2 py-1 rounded-lg transition text-[11px]" title="Cỡ chữ nhỏ">A-</button>
-                <button @click="setFontSize('md')" :class="fontSize === 'md' ? 'bg-white text-slate-900 shadow-xs font-black' : 'text-slate-500'" class="px-2 py-1 rounded-lg transition text-[11px]" title="Cỡ chữ vừa">A</button>
-                <button @click="setFontSize('lg')" :class="fontSize === 'lg' ? 'bg-white text-slate-900 shadow-xs font-black' : 'text-slate-500'" class="px-2 py-1 rounded-lg transition text-[11px]" title="Cỡ chữ to">A+</button>
+                <button @click="setFontSize('sm')" :class="fontSize === 'sm' ? 'bg-white text-slate-900 shadow-xs font-black' : 'text-slate-500'" class="px-2 py-1 rounded-lg transition text-[11px] cursor-pointer" title="Cỡ chữ nhỏ">A-</button>
+                <button @click="setFontSize('md')" :class="fontSize === 'md' ? 'bg-white text-slate-900 shadow-xs font-black' : 'text-slate-500'" class="px-2 py-1 rounded-lg transition text-[11px] cursor-pointer" title="Cỡ chữ vừa">A</button>
+                <button @click="setFontSize('lg')" :class="fontSize === 'lg' ? 'bg-white text-slate-900 shadow-xs font-black' : 'text-slate-500'" class="px-2 py-1 rounded-lg transition text-[11px] cursor-pointer" title="Cỡ chữ to">A+</button>
             </div>
 
             <!-- Quick Dictionary Trigger Button -->
             <button type="button" 
                     @click="openDictionary()" 
-                    class="px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs font-bold transition flex items-center space-x-1.5 shadow-2xs group">
+                    class="px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs font-bold transition flex items-center space-x-1.5 shadow-2xs group cursor-pointer">
                 <i data-lucide="book-open" class="w-3.5 h-3.5 text-indigo-600 group-hover:scale-110 transition-transform"></i>
                 <span>Tra từ điển</span>
                 <span class="text-[10px] bg-indigo-200/70 text-indigo-800 px-1.5 py-0.2 rounded font-mono font-bold hidden xl:inline">Ctrl+K</span>
@@ -127,7 +127,7 @@
         </div>
 
         <!-- Right: Countdown Timer & Submit Exam Button -->
-        <div class="flex items-center space-x-2 sm:space-x-3">
+        <div class="flex items-center space-x-2 sm:space-x-3 ml-auto z-10">
             <!-- Mobile View Switcher Tab (Only on small screens when passage exists) -->
             @if($hasAnyPassage)
             <div class="flex md:hidden items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-xs font-bold">
